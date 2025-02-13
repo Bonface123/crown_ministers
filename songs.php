@@ -56,12 +56,10 @@
                             </div>
                         </div>
                         <div class="col-lg-5 text-end">
-                            <div class="h-100 d-inline-flex align-items-center">
+                        <div class="h-100 d-inline-flex align-items-center">
                                 <span class="text-body">Follow Us:</span>
-                                <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="text-dark px-2" href="https://www.facebook.com/profile.php/?id=100070472545389"><i class="fab fa-facebook-f"></i></a>
+                                <a class="text-dark px-2" href="https://www.youtube.com/results?search_query=crown+ministers+kisii"><i class="fab fa-youtube"></i></a>
                                 <a class="text-body ps-4" href=""><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
                             </div>
                         </div>
@@ -70,7 +68,7 @@
             </div>
             <div class="container">
                 <nav class="navbar navbar-light navbar-expand-lg py-3">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="index.php" class="navbar-brand"></a>
                         <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -78,21 +76,21 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="activity.html" class="nav-item nav-link">Activities</a>
-                            <a href="event.html" class="nav-item nav-link">Events</a>
-                            <a href="sermon.html" class="nav-item nav-link active">Songs</a>
+                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="about.php" class="nav-item nav-link">About</a>
+                            <a href="activity.php" class="nav-item nav-link">Activities</a>
+                            <a href="event.php" class="nav-item nav-link">Events</a>
+                            <a href="sermon.php" class="nav-item nav-link active">Songs</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.html" class="dropdown-item">Latest Blog</a>
-                                    <a href="team.html" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
+                                    <a href="blog.php" class="dropdown-item">Latest Blog</a>
+                                    <a href="team.php" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.php" class="dropdown-item">Testimonial</a>
+                                    <a href="404.php" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="contact.php" class="nav-item nav-link">Contact</a>
                         </div>
                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
@@ -422,7 +420,7 @@
                 &copy; <a class="border-bottom" href="#">Crown Ministers Choir</a>, All Rights Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
-                Designed & Maintained by <a class="border-bottom" href="#">Your Name</a>
+                Designed & Maintained by <a class="border-bottom" href="#">Crwon Ministers</a>
             </div>
         </div>
     </div>
