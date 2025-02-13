@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers| Testimonial</title>
+        <title>Crown Ministers - latest Blog</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -86,15 +86,15 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.html" class="dropdown-item">Latest Blog</a>
+                                    <a href="blog.html" class="dropdown-item active">Latest Blog</a>
                                     <a href="team.html" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.html" class="dropdown-item active">Testimonial</a>
+                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     <a href="404.html" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>
@@ -108,11 +108,11 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="hero-header-inner animated zoomIn">
-                            <h1 class="display-1 text-dark">Testimonial</h1>
+                            <h1 class="display-1 text-dark">Latest Blog</h1>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-dark" aria-current="page">Testimonial</li>
+                                <li class="breadcrumb-item text-dark" aria-current="page">Latest Blog</li>
                             </ol>
                         </div>
                     </div>
@@ -122,130 +122,118 @@
         <!-- Hero End -->
 
 
-      
-        <!-- Testimonial Start -->
-<div class="container-fluid testimonial py-5">
+        
+       <!-- Blog Start -->
+<div class="container-fluid py-5">
     <div class="container py-5">
-      <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-        <p class="fs-5 text-uppercase text-primary">Testimonial</p>
-        <h1 class="display-3">What People Say About Our Choir</h1>
-      </div>
-      <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
-        <!-- Testimonial Item 1 -->
-        <div class="testimonial-item">
-          <div class="d-flex mb-3">
-            <div class="position-relative">
-              <img src="img/testimonial-1.jpg" class="img-fluid" alt="Testimonial from Jane Doe">
-              <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                <i class="fa fa-quote-left text-dark"></i>
-              </div>
+        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+            Latest From <span class="text-primary">Our Blog</span>
+        </h1>
+        <div class="row g-4 justify-content-center">
+            <!-- Blog Item 1 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
+                    <div class="blog-img position-relative overflow-hidden">
+                        <img src="img/blog-choir1.jpg" class="img-fluid w-100" alt="Inspiring Worship Moments">
+                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
+                            15 Apr 2025
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">By Admin</a>
+                                </small>
+                                <small>
+                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">5 Comments</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Joy of Worship Through Song</a>
+                        <p class="mb-4">
+                            Discover how music unites our community and inspires us to lift our voices in praise. Explore reflections on our recent worship sessions and the power of song.
+                        </p>
+                        <a href="#" class="btn btn-primary px-3">More Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="ps-3 my-auto">
-              <h5 class="mb-0">Jane Mary</h5>
-              <p class="m-0">Church Member</p>
+            <!-- Blog Item 2 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
+                    <div class="blog-img position-relative overflow-hidden">
+                        <img src="img/blog-choir2.jpg" class="img-fluid w-100" alt="Reflections on Music Ministry">
+                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
+                            22 Apr 2025
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">By Admin</a>
+                                </small>
+                                <small>
+                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">8 Comments</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Reflections on Our Music Ministry</a>
+                        <p class="mb-4">
+                            Join us as we share insights on how our choir is transforming lives through the art of music and worship. Learn about our journey and the impact of our ministry.
+                        </p>
+                        <a href="#" class="btn btn-primary px-3">More Details</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="testimonial-content">
-            <div class="d-flex">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
+            <!-- Blog Item 3 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
+                    <div class="blog-img position-relative overflow-hidden">
+                        <img src="img/blog-choir3.jpg" class="img-fluid w-100" alt="Inspiration Through Music">
+                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
+                            29 Apr 2025
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="blog-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">By Admin</a>
+                                </small>
+                                <small>
+                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">10 Comments</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Inspiration Through Music</a>
+                        <p class="mb-4">
+                            Explore the spiritual journey behind our latest songs. This post dives into the inspiration and creative process that brings our music to life.
+                        </p>
+                        <a href="#" class="btn btn-primary px-3">More Details</a>
+                    </div>
+                </div>
             </div>
-            <p class="fs-5 m-0 pt-3">
-              "Crown Ministers has truly transformed our worship experience with their soulful music and heartfelt performances. Their songs inspire and uplift everyone who listens."
-            </p>
-          </div>
         </div>
-        <!-- Testimonial Item 2 -->
-        <div class="testimonial-item">
-          <div class="d-flex mb-3">
-            <div class="position-relative">
-              <img src="img/testimonial-2.jpg" class="img-fluid" alt="Testimonial from John Smith">
-              <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                <i class="fa fa-quote-left text-dark"></i>
-              </div>
-            </div>
-            <div class="ps-3 my-auto">
-              <h5 class="mb-0">John Smith</h5>
-              <p class="m-0">Choir Enthusiast</p>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            <div class="d-flex">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-            </div>
-            <p class="fs-5 m-0 pt-3">
-              "The music and energy of Crown Ministers are simply amazing. Every performance fills our hearts with joy and renewed hope."
-            </p>
-          </div>
-        </div>
-        <!-- Testimonial Item 3 -->
-        <div class="testimonial-item">
-          <div class="d-flex mb-3">
-            <div class="position-relative">
-              <img src="img/testimonial-3.jpg" class="img-fluid" alt="Testimonial from Sarah Lee">
-              <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                <i class="fa fa-quote-left text-dark"></i>
-              </div>
-            </div>
-            <div class="ps-3 my-auto">
-              <h5 class="mb-0">Sarah Lee</h5>
-              <p class="m-0">Volunteer</p>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            <div class="d-flex">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-            </div>
-            <p class="fs-5 m-0 pt-3">
-              "Their passion for music is contagious. Crown Ministers not only delivers great performances but also creates a warm, welcoming community."
-            </p>
-          </div>
-        </div>
-        <!-- Testimonial Item 4 -->
-        <div class="testimonial-item">
-          <div class="d-flex mb-3">
-            <div class="position-relative">
-              <img src="img/testimonial-4.jpg" class="img-fluid" alt="Testimonial from Michael Green">
-              <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                <i class="fa fa-quote-left text-dark"></i>
-              </div>
-            </div>
-            <div class="ps-3 my-auto">
-              <h5 class="mb-0">Michael Green</h5>
-              <p class="m-0">Longtime Supporter</p>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            <div class="d-flex">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-            </div>
-            <p class="fs-5 m-0 pt-3">
-              "Every time I listen to their music, I feel deeply moved and spiritually refreshed. Truly a blessing to our community."
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- Testimonial End -->
-  
-
-<!-- Footer Start -->
+</div>
+<!-- Blog End -->
+         <!-- Footer Start -->
 <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row py-5">

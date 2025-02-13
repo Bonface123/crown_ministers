@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers - Our Team</title>
+        <title>Crown Ministers Choir | Sermons</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="far fa-envelope me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>info@example.com</span></a>
+                                <a href="#" class="text-secondary"><span>crownministers@gmail.com</span></a>
                             </div>
                         </div>
                         <div class="col-lg-5 text-end">
@@ -82,19 +82,19 @@
                             <a href="about.html" class="nav-item nav-link">About</a>
                             <a href="activity.html" class="nav-item nav-link">Activities</a>
                             <a href="event.html" class="nav-item nav-link">Events</a>
-                            <a href="sermon.html" class="nav-item nav-link">Songs</a>
+                            <a href="sermon.html" class="nav-item nav-link active">Songs</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
                                     <a href="blog.html" class="dropdown-item">Latest Blog</a>
-                                    <a href="team.html" class="dropdown-item active">Our Team</a>
+                                    <a href="team.html" class="dropdown-item">Our Team</a>
                                     <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     <a href="404.html" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                       <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>
@@ -102,112 +102,234 @@
         <!-- Topbar End -->
 
 
-        <!-- Hero Start -->
-        <div class="container-fluid hero-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="hero-header-inner animated zoomIn">
-                            <h1 class="display-1 text-dark">Our Team</h1>
-                            <ol class="breadcrumb mb-0">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-dark" aria-current="page">Our Team</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Hero End -->
-
-
-        <!-- Team Start -->
-<div class="container-fluid team py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-            <p class="fs-5 text-uppercase text-primary">Our Team</p>
-            <h1 class="display-3">Meet Our Choir Leaders</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-xl-5">
-                <div class="team-img wow zoomIn" data-wow-delay="0.1s">
-                    <img src="img/team-lead.jpg" class="img-fluid" alt="Choir Director">
-                </div>
-            </div>
-            <div class="col-lg-8 col-xl-7">
-                <div class="team-item wow fadeIn" data-wow-delay="0.1s">
-                    <h1>Davis</h1>
-                    <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
-                    <p class="mb-4">Davis has been leading our choir for over 10 years, bringing passion and dedication to every performance. He ensures our music uplifts and inspires all who listen.</p>
-                    <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.2s">
-                            <img src="img/team-2.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Jane Smith</h5>
-                                    <p class="text-dark">Soprano Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.4s">
-                            <img src="img/team-3.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Michael Brown</h5>
-                                    <p class="text-dark">Tenor Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.6s">
-                            <img src="img/team-4.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Emily Johnson</h5>
-                                    <p class="text-dark">Alto Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  <!-- Hero Start -->
+<div class="container-fluid hero-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="hero-header-inner animated zoomIn" id="hero-content">
+                    <h1 class="display-1 text-dark" id="hero-title">Our Songs</h1>
+                    <p class="fs-4 text-dark" id="hero-description">Watch and listen to our spirit-filled gospel songs.</p>
+                    <ol class="breadcrumb mb-0" id="hero-breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-dark" aria-current="page">Our Songs</li>
+                    </ol>
+                    <!-- YouTube Video -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="hero-video" class="embed-responsive-item" width="560" height="315"
+                            src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID1?autoplay=1&mute=0&rel=0"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Team End -->
+<!-- Hero End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let slides = [
+            {
+                image: "img/Song1.jpg",
+                title: "Hallelujah Praise",
+                description: "A song of praise lifting the name of Jesus higher.",
+                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
+                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                             <li class="breadcrumb-item text-dark" aria-current="page">Hallelujah Praise</li>`,
+                video: "https://youtu.be/9cokak2clco?si=3XUOMHblDlWxWn5x"
+            },
+            {
+                image: "img/Song2.jpg",
+                title: "Glory to God",
+                description: "A heartfelt worship song exalting the greatness of God.",
+                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
+                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                             <li class="breadcrumb-item text-dark" aria-current="page">Glory to God</li>`,
+                video: "https://youtu.be/9cokak2clco?si=3XUOMHblDlWxWn5x"
+            },
+            {
+                image: "img/Song3.jpg",
+                title: "Joyful Melodies",
+                description: "Rejoice in the Lord with this uplifting melody.",
+                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
+                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                             <li class="breadcrumb-item text-dark" aria-current="page">Joyful Melodies</li>`,
+                video: "https://www.youtube.com/embed/YOUTUBE_VIDEO_ID3?autoplay=1&mute=0&rel=0"
+            },
+            {
+                image: "img/Song4.jpg",
+                title: "The Lord is My Strength",
+                description: "A song of faith and assurance in God's mighty power.",
+                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
+                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                             <li class="breadcrumb-item text-dark" aria-current="page">The Lord is My Strength</li>`,
+                video: "https://www.youtube.com/embed/YOUTUBE_VIDEO_ID4?autoplay=1&mute=0&rel=0"
+            }
+        ];
+
+        let heroSection = document.querySelector(".hero-header");
+        let heroTitle = document.getElementById("hero-title");
+        let heroDescription = document.getElementById("hero-description");
+        let heroBreadcrumb = document.getElementById("hero-breadcrumb");
+        let heroVideo = document.getElementById("hero-video");
+
+        let index = 0;
+
+        function changeSlide() {
+            heroSection.style.background = `url("${slides[index].image}") center center no-repeat`;
+            heroSection.style.backgroundSize = "cover";
+            heroTitle.textContent = slides[index].title;
+            heroDescription.textContent = slides[index].description;
+            heroBreadcrumb.innerHTML = slides[index].breadcrumb;
+            heroVideo.src = slides[index].video; // Update YouTube video
+
+            index = (index + 1) % slides.length; // Loop through slides
+        }
+
+        setInterval(changeSlide, 15000); // Change every 15 seconds
+    });
+</script>
+
+<style>
+    .hero-header {
+        transition: background 1s ease-in-out;
+    }
+    .embed-responsive {
+        margin-top: 15px;
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .embed-responsive-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 
 
-<!-- Footer Start -->
+
+       <!-- Choir Songs Start -->
+<div class="container-fluid choir-songs py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-primary">Choir Songs</p>
+            <h1 class="display-3">Experience Our Uplifting Music</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Song Item 1 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="song-item wow fadeIn" data-wow-delay="0.1s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/song-1.jpg" class="img-fluid w-100" alt="Song Cover - Embracing His Love">
+                    </div>
+                    <div class="p-4">
+                        <div class="song-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fa fa-calendar me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">15 Apr 2025</a>
+                                </small>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted">Admin</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
+                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Embracing His Love</a>
+                        <p class="mb-0">
+                            Listen to our soulful rendition that celebrates the overwhelming love of God.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Song Item 2 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="song-item wow fadeIn" data-wow-delay="0.3s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/song-2.jpg" class="img-fluid w-100" alt="Song Cover - The Power of Praise">
+                    </div>
+                    <div class="p-4">
+                        <div class="song-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fa fa-calendar me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">22 Apr 2025</a>
+                                </small>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted">Admin</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
+                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Power of Praise</a>
+                        <p class="mb-0">
+                            Join us in a powerful musical journey that uplifts and inspires through heartfelt praise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Song Item 3 -->
+            <div class="col-lg-6 col-xl-4">
+                <div class="song-item wow fadeIn" data-wow-delay="0.5s">
+                    <div class="overflow-hidden p-4 pb-0">
+                        <img src="img/song-3.jpg" class="img-fluid w-100" alt="Song Cover - A Journey of Faith">
+                    </div>
+                    <div class="p-4">
+                        <div class="song-meta d-flex justify-content-between pb-2">
+                            <div>
+                                <small>
+                                    <i class="fa fa-calendar me-2 text-muted"></i>
+                                    <a href="#" class="text-muted me-2">29 Apr 2025</a>
+                                </small>
+                                <small>
+                                    <i class="fas fa-user me-2 text-muted"></i>
+                                    <a href="#" class="text-muted">Admin</a>
+                                </small>
+                            </div>
+                            <div>
+                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
+                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
+                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
+                            </div>
+                        </div>
+                        <a href="#" class="d-inline-block h4 lh-sm mb-3">A Journey of Faith</a>
+                        <p class="mb-0">
+                            Experience a musical voyage that explores the depths of faith and the joy of worship.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Choir Songs End -->
+
+
+        
+        <!-- Footer Start -->
 <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row py-5">
@@ -306,8 +428,6 @@
     </div>
 </div>
 <!-- Footer End -->
-
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-light back-to-top"><i class="fa fa-arrow-up"></i></a>   
 

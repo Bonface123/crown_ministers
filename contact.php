@@ -94,7 +94,7 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link active">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>

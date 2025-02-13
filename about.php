@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers Choir | Our Activities</title>
+        <title>Crown Ministers Choir | About Us</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -48,7 +48,7 @@
                         <div class="col-lg-7 text-start">
                             <div class="h-100 d-inline-flex align-items-center me-4">
                                 <span class="fa fa-phone-alt me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>+254 111 289 899</span></a>
+                                <a href="#" class="text-secondary"><span>+012 345 6789</span></a>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="far fa-envelope me-2 text-dark"></span>
@@ -79,8 +79,8 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
                             <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="activity.html" class="nav-item nav-link active">Activities</a>
+                            <a href="about.html" class="nav-item nav-link active">About</a>
+                            <a href="activity.html" class="nav-item nav-link">Activities</a>
                             <a href="event.html" class="nav-item nav-link">Events</a>
                             <a href="sermon.html" class="nav-item nav-link">Songs</a>
                             <div class="nav-item dropdown">
@@ -94,7 +94,7 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>
@@ -102,18 +102,18 @@
         <!-- Topbar End -->
 
 
-    <!-- Hero Start -->
+<!-- Hero Start -->
 <div class="container-fluid hero-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
                 <div class="hero-header-inner animated zoomIn" id="hero-content">
-                    <h1 class="display-1 text-dark" id="hero-title">Activities</h1>
-                    <p class="fs-4 text-dark" id="hero-description">Explore our various activities and programs.</p>
+                    <h1 class="display-1 text-dark" id="hero-title">About Us</h1>
+                    <p class="fs-4 text-dark" id="hero-description">Learn more about our mission and vision.</p>
                     <ol class="breadcrumb mb-0" id="hero-breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-dark" aria-current="page">Activities</li>
+                        <li class="breadcrumb-item text-dark" aria-current="page">About</li>
                     </ol>
                 </div>
             </div>
@@ -126,36 +126,36 @@
     document.addEventListener("DOMContentLoaded", function () {
         let slides = [
             {
-                image: "img/Activity1.jpg",
-                title: "Choir Rehearsals",
-                description: "Join our choir rehearsals and perfect your voice for the Lord.",
+                image: "img/choir5.png",
+                title: "Who We Are",
+                description: "Discover our journey and the impact we create.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
                              <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Choir Rehearsals</li>`
+                             <li class="breadcrumb-item text-dark" aria-current="page">Who We Are</li>`
             },
             {
-                image: "img/Activity2.jpg",
-                title: "Community Outreach",
-                description: "We engage in outreach programs to spread love and faith.",
+                image: "img/choir6.png",
+                title: "Our Mission",
+                description: "We are committed to spreading the gospel through music.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
                              <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Community Outreach</li>`
+                             <li class="breadcrumb-item text-dark" aria-current="page">Our Mission</li>`
             },
             {
-                image: "img/Activity3.jpg",
-                title: "Youth Fellowship",
-                description: "Empowering the youth through music, prayer, and mentorship.",
+                image: "img/About3.jpg",
+                title: "Our Values",
+                description: "Faith, dedication, and love drive our ministry.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
                              <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Youth Fellowship</li>`
+                             <li class="breadcrumb-item text-dark" aria-current="page">Our Values</li>`
             },
             {
-                image: "img/Activity4.jpg",
-                title: "Sunday Worship",
-                description: "Experience uplifting worship every Sunday with us.",
+                image: "img/About4.jpg",
+                title: "Join Us",
+                description: "Be part of our musical journey and praise the Lord with us.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
                              <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Sunday Worship</li>`
+                             <li class="breadcrumb-item text-dark" aria-current="page">Join Us</li>`
             }
         ];
 
@@ -163,7 +163,7 @@
         let heroTitle = document.getElementById("hero-title");
         let heroDescription = document.getElementById("hero-description");
         let heroBreadcrumb = document.getElementById("hero-breadcrumb");
-
+        
         let index = 0;
 
         function changeSlide() {
@@ -172,7 +172,7 @@
             heroTitle.textContent = slides[index].title;
             heroDescription.textContent = slides[index].description;
             heroBreadcrumb.innerHTML = slides[index].breadcrumb;
-
+            
             index = (index + 1) % slides.length; // Loop through slides
         }
 
@@ -188,209 +188,176 @@
 
 
 
-        
-        <!-- Activities Start -->
-<div class="container-fluid activities py-5">
-    <div class="container py-5">
-        <div class="mx-auto text-center mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-            <p class="fs-5 text-uppercase text-primary">Activities</p>
-            <h1 class="display-3">Our Ongoing Activities</h1>
+        <!-- About Satrt -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5 mb-5">
+                    <div class="col-xl-6">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <img src="img/about-1.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="">
+                            </div>
+                            <div class="col-6">
+                                <img src="img/about-2.jpg" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">
+                                <img src="img/about-3.jpg" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 wow fadeIn" data-wow-delay="0.5s">
+                        <p class="fs-5 text-uppercase text-primary">About Crown Ministers</p>
+                        <h1 class="display-5 pb-4 m-0">Sing to the Lord a new song! - Psalm 96:1</h1>
+                        <p class="pb-4">Crown Ministers is a Gusii-origin-based choir, formed in 2018, dedicated to spreading God's word through song, missions, 
+                            and outreach projects. We fellowship at Nyanchwa Mission Hospital SDA Church in Kisii Town.</p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <div class="ps-3 d-flex align-items-center justify-content-start">
+                                    <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-eye text-dark fa-4x mb-5 pb-2"></i></span>
+                                    <div class="ms-4">
+                                        <h5>Our Vision</h5>
+                                        <p>To become a leading gospel choir that inspires faith through music, both locally and globally.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ps-3 d-flex align-items-center justify-content-start">
+                                    <span class="bg-primary btn-md-square rounded-circle mt-4 me-2"><i class="fa fa-flag text-dark fa-4x mb-5 pb-2"></i></span>
+                                    <div class="ms-4">
+                                        <h5>Our Mission</h5>
+                                        <p>To spread the Gospel through uplifting music, touching lives, and bringing people closer to God</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light p-3 mb-4">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-3">
+                                    <img src="img/about-child.jpg" class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-0">Your generous donation helps us spread God's word through music, missions, and outreach.</p>
+                                </div>
+                                <div class="col-3">
+                                        <h2 class="mb-0 text-primary text-center">$20,46</h2>
+                                        <h5 class="mb-0 text-center">Raised</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <p class="mb-2"><i class="fa fa-check text-primary me-3"></i>Charity & Donation</p>
+                                <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Parent Education</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2"><i class="fa fa-check text-primary me-3"></i>Shooting</p>
+                                <p class="mb-0"><i class="fa fa-check text-primary me-3"></i>Music Recording</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center bg-primary py-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-2">
+                            <i class="fa fa-mosque fa-5x text-white"></i>
+                        </div>
+                        <div class="col-lg-7 text-center text-lg-start">
+                            <h1 class="mb-0">Psalms 30:4: "Sing praises to the Lord, O you his saints, and give thanks to his holy name."</h1>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="" class="btn btn-light py-2 px-4">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row g-4">
-            <!-- Choir Rehearsals -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-music fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Choir Rehearsals</h4>
-                        <p class="mb-4">Join our weekly rehearsals as we prepare to lift our voices in praise.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
-                    </div>
+        <!-- About End -->
+<!-- Team Start -->
+<div class="container-fluid team py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-primary">Our Team</p>
+            <h1 class="display-3">Meet Our Choir Leaders</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-xl-5">
+                <div class="team-img wow zoomIn" data-wow-delay="0.1s">
+                    <img src="img/team-lead.jpg" class="img-fluid" alt="Choir Director">
                 </div>
             </div>
-            <!-- Community Outreach -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-hands-helping fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Community Outreach</h4>
-                        <p class="mb-4">We engage with our community through charity events and local outreach programs.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
+            <div class="col-lg-8 col-xl-7">
+                <div class="team-item wow fadeIn" data-wow-delay="0.1s">
+                    <h1>Davis</h1>
+                    <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
+                    <p class="mb-4">Davis has been leading our choir for over 10 years, bringing passion and dedication to every performance. He ensures our music uplifts and inspires all who listen.</p>
+                    <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
+                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-            </div>
-            <!-- Prayer Meetings -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-pray fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Prayer Meetings</h4>
-                        <p class="mb-4">Gather with us for uplifting prayer meetings and spiritual fellowship.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.2s">
+                            <img src="img/team-2.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Jane Smith</h5>
+                                    <p class="text-dark">Soprano Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Charity & Donations -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-heart fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Charity & Donations</h4>
-                        <p class="mb-4">We support various charitable causes to help those in need in our community.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.4s">
+                            <img src="img/team-3.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Michael Brown</h5>
+                                    <p class="text-dark">Tenor Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Fellowship Gatherings -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-users fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Fellowship Gatherings</h4>
-                        <p class="mb-4">Experience the warmth of our community at our regular fellowship events.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Special Events -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="activities-item p-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-calendar-alt fa-4x text-dark"></i>
-                    <div class="ms-4">
-                        <h4>Special Events</h4>
-                        <p class="mb-4">Join us for special concerts, seasonal services, and other exciting events.</p>
-                        <a href="#" class="btn btn-primary px-3">Read More</a>
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.6s">
+                            <img src="img/team-4.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Emily Johnson</h5>
+                                    <p class="text-dark">Alto Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Activities End -->
-        <!-- Testimonial Start -->
-        <div class="container-fluid testimonial py-5">
-            <div class="container py-5">
-              <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-                <p class="fs-5 text-uppercase text-primary">Testimonial</p>
-                <h1 class="display-3">What People Say About Our Choir</h1>
-              </div>
-              <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
-                <!-- Testimonial Item 1 -->
-                <div class="testimonial-item">
-                  <div class="d-flex mb-3">
-                    <div class="position-relative">
-                      <img src="img/testimonial-1.jpg" class="img-fluid" alt="Testimonial from Jane Doe">
-                      <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                        <i class="fa fa-quote-left text-dark"></i>
-                      </div>
-                    </div>
-                    <div class="ps-3 my-auto">
-                      <h5 class="mb-0">Jane Mary</h5>
-                      <p class="m-0">Church Member</p>
-                    </div>
-                  </div>
-                  <div class="testimonial-content">
-                    <div class="d-flex">
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                    </div>
-                    <p class="fs-5 m-0 pt-3">
-                      "Crown Ministers has truly transformed our worship experience with their soulful music and heartfelt performances. Their songs inspire and uplift everyone who listens."
-                    </p>
-                  </div>
-                </div>
-                <!-- Testimonial Item 2 -->
-                <div class="testimonial-item">
-                  <div class="d-flex mb-3">
-                    <div class="position-relative">
-                      <img src="img/testimonial-2.jpg" class="img-fluid" alt="Testimonial from John Smith">
-                      <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                        <i class="fa fa-quote-left text-dark"></i>
-                      </div>
-                    </div>
-                    <div class="ps-3 my-auto">
-                      <h5 class="mb-0">John Smith</h5>
-                      <p class="m-0">Choir Enthusiast</p>
-                    </div>
-                  </div>
-                  <div class="testimonial-content">
-                    <div class="d-flex">
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                    </div>
-                    <p class="fs-5 m-0 pt-3">
-                      "The music and energy of Crown Ministers are simply amazing. Every performance fills our hearts with joy and renewed hope."
-                    </p>
-                  </div>
-                </div>
-                <!-- Testimonial Item 3 -->
-                <div class="testimonial-item">
-                  <div class="d-flex mb-3">
-                    <div class="position-relative">
-                      <img src="img/testimonial-3.jpg" class="img-fluid" alt="Testimonial from Sarah Lee">
-                      <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                        <i class="fa fa-quote-left text-dark"></i>
-                      </div>
-                    </div>
-                    <div class="ps-3 my-auto">
-                      <h5 class="mb-0">Sarah Lee</h5>
-                      <p class="m-0">Volunteer</p>
-                    </div>
-                  </div>
-                  <div class="testimonial-content">
-                    <div class="d-flex">
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                    </div>
-                    <p class="fs-5 m-0 pt-3">
-                      "Their passion for music is contagious. Crown Ministers not only delivers great performances but also creates a warm, welcoming community."
-                    </p>
-                  </div>
-                </div>
-                <!-- Testimonial Item 4 -->
-                <div class="testimonial-item">
-                  <div class="d-flex mb-3">
-                    <div class="position-relative">
-                      <img src="img/testimonial-4.jpg" class="img-fluid" alt="Testimonial from Michael Green">
-                      <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
-                        <i class="fa fa-quote-left text-dark"></i>
-                      </div>
-                    </div>
-                    <div class="ps-3 my-auto">
-                      <h5 class="mb-0">Michael Green</h5>
-                      <p class="m-0">Longtime Supporter</p>
-                    </div>
-                  </div>
-                  <div class="testimonial-content">
-                    <div class="d-flex">
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                      <i class="fas fa-star text-primary"></i>
-                    </div>
-                    <p class="fs-5 m-0 pt-3">
-                      "Every time I listen to their music, I feel deeply moved and spiritually refreshed. Truly a blessing to our community."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Testimonial End -->
+<!-- Team End -->
 
 
- <!-- Footer Start -->
- <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+
+       <!-- Footer Start -->
+<div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row py-5">
             <div class="col-lg-7">
@@ -482,13 +449,12 @@
                 &copy; <a class="border-bottom" href="#">Crown Ministers Choir</a>, All Rights Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
-                Designed & Maintained by <a class="border-bottom" href="#">Your Name</a>
+                Designed & Maintained by <a class="border-bottom" href="#"></a>
             </div>
         </div>
     </div>
 </div>
 <!-- Footer End -->
-
 
 
 

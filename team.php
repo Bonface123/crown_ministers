@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers - latest Blog</title>
+        <title>Crown Ministers - Our Team</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -86,15 +86,15 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.html" class="dropdown-item active">Latest Blog</a>
-                                    <a href="team.html" class="dropdown-item">Our Team</a>
+                                    <a href="blog.html" class="dropdown-item">Latest Blog</a>
+                                    <a href="team.html" class="dropdown-item active">Our Team</a>
                                     <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     <a href="404.html" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>
@@ -108,11 +108,11 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="hero-header-inner animated zoomIn">
-                            <h1 class="display-1 text-dark">Latest Blog</h1>
+                            <h1 class="display-1 text-dark">Our Team</h1>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-dark" aria-current="page">Latest Blog</li>
+                                <li class="breadcrumb-item text-dark" aria-current="page">Our Team</li>
                             </ol>
                         </div>
                     </div>
@@ -122,118 +122,92 @@
         <!-- Hero End -->
 
 
-        
-       <!-- Blog Start -->
-<div class="container-fluid py-5">
+        <!-- Team Start -->
+<div class="container-fluid team py-5">
     <div class="container py-5">
-        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-            Latest From <span class="text-primary">Our Blog</span>
-        </h1>
-        <div class="row g-4 justify-content-center">
-            <!-- Blog Item 1 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir1.jpg" class="img-fluid w-100" alt="Inspiring Worship Moments">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            15 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">5 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Joy of Worship Through Song</a>
-                        <p class="mb-4">
-                            Discover how music unites our community and inspires us to lift our voices in praise. Explore reflections on our recent worship sessions and the power of song.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
-                    </div>
+        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+            <p class="fs-5 text-uppercase text-primary">Our Team</p>
+            <h1 class="display-3">Meet Our Choir Leaders</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-xl-5">
+                <div class="team-img wow zoomIn" data-wow-delay="0.1s">
+                    <img src="img/team-lead.jpg" class="img-fluid" alt="Choir Director">
                 </div>
             </div>
-            <!-- Blog Item 2 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir2.jpg" class="img-fluid w-100" alt="Reflections on Music Ministry">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            22 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">8 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Reflections on Our Music Ministry</a>
-                        <p class="mb-4">
-                            Join us as we share insights on how our choir is transforming lives through the art of music and worship. Learn about our journey and the impact of our ministry.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
+            <div class="col-lg-8 col-xl-7">
+                <div class="team-item wow fadeIn" data-wow-delay="0.1s">
+                    <h1>Davis</h1>
+                    <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
+                    <p class="mb-4">Davis has been leading our choir for over 10 years, bringing passion and dedication to every performance. He ensures our music uplifts and inspires all who listen.</p>
+                    <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
+                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-            </div>
-            <!-- Blog Item 3 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir3.jpg" class="img-fluid w-100" alt="Inspiration Through Music">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            29 Apr 2025
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.2s">
+                            <img src="img/team-2.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Jane Smith</h5>
+                                    <p class="text-dark">Soprano Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">10 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.4s">
+                            <img src="img/team-3.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Michael Brown</h5>
+                                    <p class="text-dark">Tenor Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Inspiration Through Music</a>
-                        <p class="mb-4">
-                            Explore the spiritual journey behind our latest songs. This post dives into the inspiration and creative process that brings our music to life.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="team-item wow zoomIn" data-wow-delay="0.6s">
+                            <img src="img/team-4.jpg" class="img-fluid w-100" alt="">
+                            <div class="team-content text-dark text-center py-3">
+                                <div class="team-content-inner">
+                                    <h5 class="mb-0">Emily Johnson</h5>
+                                    <p class="text-dark">Alto Lead</p>
+                                    <div class="team-icon d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Blog End -->
-         <!-- Footer Start -->
+<!-- Team End -->
+
+
+<!-- Footer Start -->
 <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row py-5">
