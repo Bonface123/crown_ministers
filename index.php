@@ -58,10 +58,8 @@
                         <div class="col-lg-5 text-end">
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="text-body">Follow Us:</span>
-                                <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="text-dark px-2" href="https://www.facebook.com/profile.php/?id=100070472545389"><i class="fab fa-facebook-f"></i></a>
+                                <a class="text-dark px-2" href="https://www.youtube.com/results?search_query=crown+ministers+kisii"><i class="fab fa-youtube"></i></a>
                                 <a class="text-body ps-4" href=""><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
                             </div>
                         </div>
@@ -70,7 +68,7 @@
             </div>
             <div class="container">
                 <nav class="navbar navbar-light navbar-expand-lg py-3">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="index.php" class="navbar-brand">
                         <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -78,21 +76,21 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="activity.html" class="nav-item nav-link">Activities</a>
-                            <a href="event.html" class="nav-item nav-link">Events</a>
-                            <a href="sermon.html" class="nav-item nav-link">Songs</a>
+                            <a href="index.php" class="nav-item nav-link active">Home</a>
+                            <a href="about.php" class="nav-item nav-link">About</a>
+                            <a href="activity.php" class="nav-item nav-link">Activities</a>
+                            <a href="event.php" class="nav-item nav-link">Events</a>
+                            <a href="songs.php" class="nav-item nav-link">Songs</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.html" class="dropdown-item">Latest Blog</a>
-                                    <a href="team.html" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
+                                    <a href="blog.php" class="dropdown-item">Latest Blog</a>
+                                    <a href="team.php" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.php" class="dropdown-item">Testimonial</a>
+                                    <a href="404.php" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="contact.php" class="nav-item nav-link">Contact</a>
                         </div>
                         <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
@@ -100,23 +98,88 @@
             </div>
         </div>
         <!-- Topbar End -->
+        <!-- Topbar End -->
 
-
-<!-- Hero Start -->
-<div class="container-fluid hero-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="hero-header-inner animated zoomIn" id="hero-content">
-                    <p class="fs-4 text-dark" id="hero-subtitle">WELCOME TO CROWN MINISTERS</p>
-                    <h1 class="display-1 mb-5 text-dark" id="hero-title">Sing to the Lord a new song!</h1>
-                    <a href="#" class="btn btn-primary py-3 px-5" id="hero-btn">Read More</a>
+        <!-- Hero Start -->
+        <div class="container-fluid hero-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="hero-header-inner animated zoomIn" id="hero-content">
+                            <p class="fs-4 text-dark" id="hero-subtitle">WELCOME TO CROWN MINISTERS</p>
+                            <h1 class="display-1 mb-5 text-dark" id="hero-title">Sing to the Lord a new song!</h1>
+                            <a href="#" class="btn btn-primary py-3 px-5" id="hero-btn">Read More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Hero End -->
+        <!-- Hero End -->
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let slides = [
+                  
+                    {
+                        image: "img/choir7.jpg",
+                        subtitle: "JOIN OUR WORSHIP TEAM",
+                        title: "Lift your voice in praise!",
+                        buttonText: "Join Now",
+                        buttonLink: "#join"
+                    },
+                    {
+                        image: "img/choir4.jpg",
+                        subtitle: "EXPERIENCE SPIRITUAL GROWTH",
+                        title: "Worship through song and prayer!",
+                        buttonText: "Learn More",
+                        buttonLink: "#learn"
+                    },
+                    {
+                        image: "img/choir10.jpg",
+                        subtitle: "CELEBRATE GOD'S LOVE",
+                        title: "Sing with joy in your heart!",
+                        buttonText: "Get Involved",
+                        buttonLink: "#involve"
+                    }
+                ];
+                
+                let heroSection = document.querySelector(".hero-header");
+                let subtitleElement = document.getElementById("hero-subtitle");
+                let titleElement = document.getElementById("hero-title");
+                let buttonElement = document.getElementById("hero-btn");
+
+                let index = 0;
+
+                function changeSlide() {
+                    heroSection.style.background = `url("${slides[index].image}") center center no-repeat`;
+                    heroSection.style.backgroundSize = "cover";
+
+                    // Fade out content before changing it
+                    document.getElementById("hero-content").style.opacity = 0;
+
+                    setTimeout(() => {
+                        subtitleElement.textContent = slides[index].subtitle;
+                        titleElement.textContent = slides[index].title;
+                        buttonElement.textContent = slides[index].buttonText;
+                        buttonElement.href = slides[index].buttonLink;
+
+                        // Fade in new content
+                        document.getElementById("hero-content").style.opacity = 1;
+
+                        index = (index + 1) % slides.length; // Loop through slides
+                    }, 500); // Short delay for smooth transition
+                }
+
+                setInterval(changeSlide, 5000); // Change every 5 seconds
+            });
+        </script>
+        <!---->
+
+        <style>
+            #hero-content {
+                transition: opacity 0.5s ease-in-out;
+            }
+        </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -193,11 +256,11 @@
                     <div class="col-xl-6">
                         <div class="row g-4">
                             <div class="col-6">
-                                <img src="" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="img" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="image">
                             </div>
                             <div class="col-6">
-                                <img src="" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
-                                <img src="" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="choir 8" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="img/choir6" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
                             </div>
                         </div>
                     </div>
@@ -230,7 +293,7 @@
                         <div class="bg-light p-3 mb-4">
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-3">
-                                    <img src="img/about-child.jpg" class="img-fluid rounded-circle" alt="">
+                                    <img src="img/" class="img-fluid rounded-circle" alt="Charity Image">
                                 </div>
                                 <div class="col-6">
                                     <p class="mb-0">Your generous donation helps us spread God's word through music, missions, and outreach.</p>
@@ -352,84 +415,34 @@
 <!-- Activities End -->
 
 
-         <!-- Events Start -->
-<div class="container-fluid event py-5">
-    <div class="container py-5">
-        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-            Upcoming <span class="text-primary">Events</span>
-        </h1>
-        <!-- Event 1 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>15 Apr 2025</h6>
-                    <p class="mb-0">Sat 19:00</p>
-                </div>
-            </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Evening Praise Concert</h4>
-                    <p class="mb-4">
-                        Join Crown Ministers for an evening of uplifting music and praise. Experience soulful worship that will inspire and renew your spirit.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir1.jpg" class="img-fluid w-100" alt="Evening Praise Concert">
-                </div>
-            </div>
-        </div>
-        <!-- Event 2 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.3s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>22 Apr 2025</h6>
-                    <p class="mb-0">Sun 10:00</p>
-                </div>
-            </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Community Outreach Service</h4>
-                    <p class="mb-4">
-                        Be part of our community outreach event as we extend our support to those in need through inspiring messages and heartfelt music.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir2.jpg" class="img-fluid w-100" alt="Community Outreach Service">
-                </div>
-            </div>
-        </div>
-        <!-- Event 3 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.5s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>29 Apr 2025</h6>
-                    <p class="mb-0">Fri 18:30</p>
-                </div>
-            </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Special Worship Night</h4>
-                    <p class="mb-4">
-                        Gather with Crown Ministers for a night of special worship, heartfelt prayer, and community fellowship. Let your spirit be lifted.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir3.jpg" class="img-fluid w-100" alt="Special Worship Night">
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="events-section">
+    <h2>Upcoming Events</h2>
+    <div id="events-container"></div>
 </div>
-<!-- Events End -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('fetch_events.php')
+    .then(response => response.json())
+    .then(data => {
+        let eventsContainer = document.getElementById('events-container');
+        eventsContainer.innerHTML = '';
+
+        data.forEach(event => {
+            eventsContainer.innerHTML += `
+                <div class="event">
+                    <h3>${event.title}</h3>
+                    <p><strong>Date:</strong> ${event.date} | <strong>Time:</strong> ${event.time}</p>
+                    <p><strong>Location:</strong> ${event.location}</p>
+                    <p>${event.description}</p>
+                    <img src="uploads/${event.image}" alt="Event Image" width="200">
+                </div>
+            `;
+        });
+    })
+    .catch(error => console.log("Error fetching events:", error));
+});
+</script>
 
 
 <!-- Choir Songs Start -->
@@ -760,7 +773,7 @@
         <div class="testimonial-item">
           <div class="d-flex mb-3">
             <div class="position-relative">
-              <img src="img/testimonial-1.jpg" class="img-fluid" alt="Testimonial from Jane Doe">
+              <img src="img/" class="img-fluid" alt="Testimonial from John John">
               <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
                 <i class="fa fa-quote-left text-dark"></i>
               </div>
@@ -787,7 +800,7 @@
         <div class="testimonial-item">
           <div class="d-flex mb-3">
             <div class="position-relative">
-              <img src="img/testimonial-2.jpg" class="img-fluid" alt="Testimonial from John Smith">
+              <img src="img/" class="img-fluid" alt="Testimonial from John Smith">
               <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
                 <i class="fa fa-quote-left text-dark"></i>
               </div>
@@ -814,7 +827,7 @@
         <div class="testimonial-item">
           <div class="d-flex mb-3">
             <div class="position-relative">
-              <img src="img/testimonial-3.jpg" class="img-fluid" alt="Testimonial from Sarah Lee">
+              <img src="img/" class="img-fluid" alt="Testimonial from Sarah Lee">
               <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
                 <i class="fa fa-quote-left text-dark"></i>
               </div>
@@ -841,7 +854,7 @@
         <div class="testimonial-item">
           <div class="d-flex mb-3">
             <div class="position-relative">
-              <img src="img/testimonial-4.jpg" class="img-fluid" alt="Testimonial from Michael Green">
+              <img src="img/" class="img-fluid" alt="Testimonial from Michael Green">
               <div class="btn-md-square bg-primary rounded-circle position-absolute" style="top: 25px; left: -25px;">
                 <i class="fa fa-quote-left text-dark"></i>
               </div>

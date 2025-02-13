@@ -52,16 +52,14 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="far fa-envelope me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>info@example.com</span></a>
+                                <a href="#" class="text-secondary"><span>crownministers@gmail.com</span></a>
                             </div>
                         </div>
                         <div class="col-lg-5 text-end">
-                            <div class="h-100 d-inline-flex align-items-center">
+                        <div class="h-100 d-inline-flex align-items-center">
                                 <span class="text-body">Follow Us:</span>
-                                <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="text-dark px-2" href="https://www.facebook.com/profile.php/?id=100070472545389"><i class="fab fa-facebook-f"></i></a>
+                                <a class="text-dark px-2" href="https://www.youtube.com/results?search_query=crown+ministers+kisii"><i class="fab fa-youtube"></i></a>
                                 <a class="text-body ps-4" href=""><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
                             </div>
                         </div>
@@ -70,7 +68,7 @@
             </div>
             <div class="container">
                 <nav class="navbar navbar-light navbar-expand-lg py-3">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="index.php" class="navbar-brand"></a>
                         <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -78,21 +76,21 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link active">About</a>
-                            <a href="activity.html" class="nav-item nav-link">Activities</a>
-                            <a href="event.html" class="nav-item nav-link">Events</a>
-                            <a href="sermon.html" class="nav-item nav-link">Songs</a>
+                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="about.php" class="nav-item nav-link active">About</a>
+                            <a href="activity.php" class="nav-item nav-link">Activities</a>
+                            <a href="event.php" class="nav-item nav-link">Events</a>
+                            <a href="songs.php" class="nav-item nav-link">Songs</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.html" class="dropdown-item">Latest Blog</a>
-                                    <a href="team.html" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
+                                    <a href="blog.php" class="dropdown-item">Latest Blog</a>
+                                    <a href="team.php" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.php" class="dropdown-item">Testimonial</a>
+                                    <a href="404.php" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="contact.php" class="nav-item nav-link">Contact</a>
                         </div>
                         <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
@@ -142,7 +140,7 @@
                              <li class="breadcrumb-item text-dark" aria-current="page">Our Mission</li>`
             },
             {
-                image: "img/About3.jpg",
+                image: "img/choir8.jpg",
                 title: "Our Values",
                 description: "Faith, dedication, and love drive our ministry.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -150,7 +148,7 @@
                              <li class="breadcrumb-item text-dark" aria-current="page">Our Values</li>`
             },
             {
-                image: "img/About4.jpg",
+                image: "img/choir7.jpg",
                 title: "Join Us",
                 description: "Be part of our musical journey and praise the Lord with us.",
                 breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -195,11 +193,11 @@
                     <div class="col-xl-6">
                         <div class="row g-4">
                             <div class="col-6">
-                                <img src="img/about-1.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="">
+                                <img src="img/.jpg" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="About Us Image">
                             </div>
                             <div class="col-6">
-                                <img src="img/about-2.jpg" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="">
-                                <img src="img/about-3.jpg" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="">
+                                <img src="img/" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="About Us Image">
+                                <img src="img/" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="About Us Image">
                             </div>
                         </div>
                     </div>
@@ -231,7 +229,7 @@
                         <div class="bg-light p-3 mb-4">
                             <div class="row align-items-center justify-content-center">
                                 <div class="col-3">
-                                    <img src="img/about-child.jpg" class="img-fluid rounded-circle" alt="">
+                                    <img src="img/" class="img-fluid rounded-circle" alt="Charity Image">
                                 </div>
                                 <div class="col-6">
                                     <p class="mb-0">Your generous donation helps us spread God's word through music, missions, and outreach.</p>
@@ -254,107 +252,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="container text-center bg-primary py-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-2">
-                            <i class="fa fa-mosque fa-5x text-white"></i>
-                        </div>
-                        <div class="col-lg-7 text-center text-lg-start">
-                            <h1 class="mb-0">Psalms 30:4: "Sing praises to the Lord, O you his saints, and give thanks to his holy name."</h1>
-                        </div>
-                        <div class="col-lg-3">
-                            <a href="" class="btn btn-light py-2 px-4">Learn More</a>
-                        </div>
-                    </div>
+              
                 </div>
             </div>
         </div>
         <!-- About End -->
-<!-- Team Start -->
-<div class="container-fluid team py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-            <p class="fs-5 text-uppercase text-primary">Our Team</p>
-            <h1 class="display-3">Meet Our Choir Leaders</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-xl-5">
-                <div class="team-img wow zoomIn" data-wow-delay="0.1s">
-                    <img src="img/team-lead.jpg" class="img-fluid" alt="Choir Director">
-                </div>
-            </div>
-            <div class="col-lg-8 col-xl-7">
-                <div class="team-item wow fadeIn" data-wow-delay="0.1s">
-                    <h1>Davis</h1>
-                    <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
-                    <p class="mb-4">Davis has been leading our choir for over 10 years, bringing passion and dedication to every performance. He ensures our music uplifts and inspires all who listen.</p>
-                    <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.2s">
-                            <img src="img/team-2.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Jane Smith</h5>
-                                    <p class="text-dark">Soprano Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.4s">
-                            <img src="img/team-3.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Michael Brown</h5>
-                                    <p class="text-dark">Tenor Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.6s">
-                            <img src="img/team-4.jpg" class="img-fluid w-100" alt="">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Emily Johnson</h5>
-                                    <p class="text-dark">Alto Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Team End -->
-
-
 
        <!-- Footer Start -->
 <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -449,7 +351,7 @@
                 &copy; <a class="border-bottom" href="#">Crown Ministers Choir</a>, All Rights Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
-                Designed & Maintained by <a class="border-bottom" href="#"></a>
+            Crown Ministers <a class="border-bottom" href="#"></a>
             </div>
         </div>
     </div>
