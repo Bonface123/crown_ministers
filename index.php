@@ -52,7 +52,7 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="far fa-envelope me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>info@example.com</span></a>
+                                <a href="#" class="text-secondary"><span>crownministers@gmail.com</span></a>
                             </div>
                         </div>
                         <div class="col-lg-5 text-end">
@@ -94,7 +94,7 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
                     </div>
                 </nav>
             </div>
