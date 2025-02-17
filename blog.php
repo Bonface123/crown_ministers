@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers - latest Blog</title>
+        <title>Crown Ministers Choir | Blog </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -55,7 +55,8 @@
                                 <a href="#" class="text-secondary"><span>crownministers@gmail.com</span></a>
                             </div>
                         </div>
-                        <div class="h-100 d-inline-flex align-items-center">
+                        <div class="col-lg-5 text-end">
+                            <div class="h-100 d-inline-flex align-items-center">
                                 <span class="text-body">Follow Us:</span>
                                 <a class="text-dark px-2" href="https://www.facebook.com/profile.php/?id=100070472545389"><i class="fab fa-facebook-f"></i></a>
                                 <a class="text-dark px-2" href="https://www.youtube.com/results?search_query=crown+ministers+kisii"><i class="fab fa-youtube"></i></a>
@@ -67,7 +68,7 @@
             </div>
             <div class="container">
                 <nav class="navbar navbar-light navbar-expand-lg py-3">
-                    <a href="index.php" class="navbar-brand"></a>
+                    <a href="index.php" class="navbar-brand">
                         <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -75,15 +76,15 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="index.php" class="nav-item nav-link active">Home</a>
                             <a href="about.php" class="nav-item nav-link">About</a>
                             <a href="activity.php" class="nav-item nav-link">Activities</a>
                             <a href="event.php" class="nav-item nav-link">Events</a>
                             <a href="songs.php" class="nav-item nav-link">Songs</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.php" class="dropdown-item active">Latest Blog</a>
+                                    <a href="blog.php" class="dropdown-item">Latest Blog</a>
                                     <a href="team.php" class="dropdown-item">Our Team</a>
                                     <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                                     <a href="404.php" class="dropdown-item">404 Page</a>

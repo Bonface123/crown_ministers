@@ -41,7 +41,7 @@
 
 
         <!-- Topbar start -->
-        <div class="container-fluid fixed-top">
+        <divecho ""; class="container-fluid fixed-top">
             <div class="container topbar d-none d-lg-block">
                 <div class="topbar-inner">
                     <div class="row gx-0">

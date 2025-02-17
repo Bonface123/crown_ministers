@@ -98,7 +98,6 @@
             </div>
         </div>
         <!-- Topbar End -->
-        <!-- Topbar End -->
 
         <!-- Hero Start -->
         <div class="container-fluid hero-header">
@@ -116,7 +115,7 @@
         </div>
         <!-- Hero End -->
 
-        <script>
+       <!--<script>
             document.addEventListener("DOMContentLoaded", function () {
                 let slides = [
                   
@@ -173,7 +172,7 @@
                 setInterval(changeSlide, 5000); // Change every 5 seconds
             });
         </script>
-        <!---->
+       
 
         <style>
             #hero-content {
@@ -181,63 +180,7 @@
             }
         </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let slides = [
-          
-            {
-                image: "",
-                subtitle: "JOIN OUR WORSHIP TEAM",
-                title: "Lift your voice in praise!",
-                buttonText: "Join Now",
-                buttonLink: "#join"
-            },
-            {
-                image: "",
-                subtitle: "EXPERIENCE SPIRITUAL GROWTH",
-                title: "Worship through song and prayer!",
-                buttonText: "Learn More",
-                buttonLink: "#learn"
-            },
-            {
-                image: "",
-                subtitle: "CELEBRATE GOD'S LOVE",
-                title: "Sing with joy in your heart!",
-                buttonText: "Get Involved",
-                buttonLink: "#involve"
-            }
-        ];
-        
-        let heroSection = document.querySelector(".hero-header");
-        let subtitleElement = document.getElementById("hero-subtitle");
-        let titleElement = document.getElementById("hero-title");
-        let buttonElement = document.getElementById("hero-btn");
 
-        let index = 0;
-
-        function changeSlide() {
-            heroSection.style.background = `url("${slides[index].image}") center center no-repeat`;
-            heroSection.style.backgroundSize = "cover";
-
-            // Fade out content before changing it
-            document.getElementById("hero-content").style.opacity = 0;
-
-            setTimeout(() => {
-                subtitleElement.textContent = slides[index].subtitle;
-                titleElement.textContent = slides[index].title;
-                buttonElement.textContent = slides[index].buttonText;
-                buttonElement.href = slides[index].buttonLink;
-
-                // Fade in new content
-                document.getElementById("hero-content").style.opacity = 1;
-
-                index = (index + 1) % slides.length; // Loop through slides
-            }, 500); // Short delay for smooth transition
-        }
-
-        setInterval(changeSlide, 5000); // Change every 5 seconds
-    });
-</script>
 <!---->
 
 <style>
@@ -256,11 +199,11 @@
                     <div class="col-xl-6">
                         <div class="row g-4">
                             <div class="col-6">
-                                <img src="img" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="img/choir2.png" class="img-fluid h-100 wow zoomIn" data-wow-delay="0.1s" alt="image">
                             </div>
                             <div class="col-6">
-                                <img src="choir 8" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
-                                <img src="img/choir6" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="img/choir7.jpg" class="img-fluid pb-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
+                                <img src="img/choir10.jpg" class="img-fluid pt-3 wow zoomIn" data-wow-delay="0.1s" alt="image">
                             </div>
                         </div>
                     </div>
