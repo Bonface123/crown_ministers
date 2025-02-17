@@ -120,89 +120,72 @@
         <!-- Hero End -->
 
 
-        <!-- Team Start -->
-<div class="container-fluid team py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-            <p class="fs-5 text-uppercase text-primary">Our Team</p>
-            <h1 class="display-3">Meet Our Choir Leaders</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-xl-5">
-                <div class="team-img wow zoomIn" data-wow-delay="0.1s">
-                    <img src="img/" class="img-fluid" alt="Choir Director">
-                </div>
+
+        <?php
+include('crown_ministers_admin/includes/db_connect.php');
+// Get all team members from the database
+$sql = "SELECT * FROM team";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$team_members = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Choir Leaders</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Include any CSS or JS files like wow.js, font-awesome, etc. -->
+    <link rel="stylesheet" href="path/to/font-awesome.css">
+    <link rel="stylesheet" href="path/to/wow.css">
+    <script src="path/to/wow.js"></script>
+</head>
+
+<body>
+    <!-- Team Start -->
+    <div class="container-fluid team py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+                <p class="fs-5 text-uppercase text-primary">Our Team</p>
+                <h1 class="display-3">Meet Our Choir Leaders</h1>
             </div>
-            <div class="col-lg-8 col-xl-7">
-                <div class="team-item wow fadeIn" data-wow-delay="0.1s">
-                    <h1>Davis</h1>
-                    <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
-                    <p class="mb-4">Davis has been leading our choir for over 10 years, bringing passion and dedication to every performance. He ensures our music uplifts and inspires all who listen.</p>
-                    <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
+            <div class="row g-5">
+                <?php foreach ($team_members as $member): ?>
+                    <div class="col-lg-4 col-xl-5">
+                        <div class="team-img wow zoomIn" data-wow-delay="0.1s">
+                            <img src="<?= htmlspecialchars($member['image']) ?: 'img/default-profile.png' ?>" class="img-fluid" alt="<?= htmlspecialchars($member['name']) ?>">
+                        </div>
                     </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.2s">
-                            <img src="img/g" class="img-fluid w-100" alt="Choir Secretary">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Jane Smith</h5>
-                                    <p class="text-dark">Soprano Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
+                    <div class="col-lg-8 col-xl-7">
+                        <div class="team-item wow fadeIn" data-wow-delay="0.1s">
+                            <h1><?= htmlspecialchars($member['name']) ?></h1>
+                            <h5 class="fw-normal fst-italic text-primary mb-4"><?= htmlspecialchars($member['role']) ?></h5>
+                            <p class="mb-4"><?= nl2br(htmlspecialchars($member['description'])) ?></p>
+                            <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
+                                <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-primary btn-lg-square me-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-primary btn-lg-square"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.4s">
-                            <img src="img/" class="img-fluid w-100" alt="Choir Treasurer">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Michael Brown</h5>
-                                    <p class="text-dark">Tenor Lead</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="team-item wow zoomIn" data-wow-delay="0.6s">
-                            <img src="img/" class="img-fluid w-100" alt="Choir Patron">
-                            <div class="team-content text-dark text-center py-3">
-                                <div class="team-content-inner">
-                                    <h5 class="mb-0">Emily Johnson</h5>
-                                    <p class="text-dark">Choir Patron</p>
-                                    <div class="team-icon d-flex align-items-center justify-content-center">
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square me-2"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm-square"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Team End -->
+    <!-- Team End -->
+
+    <!-- Script Initialization for WOW.js -->
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
+
 
 
 <!-- Footer Start -->

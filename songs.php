@@ -128,7 +128,7 @@
 </div>
 <!-- Hero End -->
 
-<script>
+<!--<script>
     document.addEventListener("DOMContentLoaded", function () {
         let slides = [
             {
@@ -190,7 +190,7 @@
 
         setInterval(changeSlide, 15000); // Change every 15 seconds
     });
-</script>
+</script> -->
 
 <style>
     .hero-header {
@@ -216,114 +216,79 @@
 
 
 
-       <!-- Choir Songs Start -->
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
+// Get all active songs from the database
+$sql = "SELECT * FROM youtube_songs"; // Query to get all songs
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$songs = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Songs</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Include FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+   
+<!-- Choir Songs Start -->
 <div class="container-fluid choir-songs py-5">
     <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+        <div class="text-center mx-auto mb-5">
             <p class="fs-5 text-uppercase text-primary">Choir Songs</p>
             <h1 class="display-3">Experience Our Uplifting Music</h1>
         </div>
         <div class="row g-4 justify-content-center">
-            <!-- Song Item 1 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.1s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-1.jpg" class="img-fluid w-100" alt="Song Cover - Embracing His Love">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">15 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
+            <?php foreach ($songs as $song): ?>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="song-item wow fadeIn" data-wow-delay="0.1s">
+                        <div class="overflow-hidden p-4 pb-0">
+                            <!-- You can use a placeholder image for the song -->
+                            <img src="img/song-placeholder.jpg" class="img-fluid w-100" alt="Song Cover">
                         </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Embracing His Love</a>
-                        <p class="mb-0">
-                            Listen to our soulful rendition that celebrates the overwhelming love of God.
-                        </p>
+                        <div class="p-4">
+                            <div class="song-meta d-flex justify-content-between pb-2">
+                                <div>
+                                    <small>
+                                        <i class="fa fa-calendar me-2 text-muted"></i>
+                                        <a href="#" class="text-muted me-2"><?= htmlspecialchars($song['uploaded_on']) ?></a>
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="<?= htmlspecialchars($song['youtube_url']) ?>" target="_blank" class="me-1">
+                                        <i class="fas fa-video text-muted"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="<?= htmlspecialchars($song['youtube_url']) ?>" target="_blank" class="d-inline-block h4 lh-sm mb-3">
+                                <?= htmlspecialchars($song['song_name']) ?>
+                            </a>
+                            <!-- Dynamically displaying the song description -->
+                            <p class="mb-0">
+                                <?= htmlspecialchars($song['description']) ?> <!-- Displaying description here -->
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Song Item 2 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.3s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-2.jpg" class="img-fluid w-100" alt="Song Cover - The Power of Praise">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">22 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Power of Praise</a>
-                        <p class="mb-0">
-                            Join us in a powerful musical journey that uplifts and inspires through heartfelt praise.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Song Item 3 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.5s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-3.jpg" class="img-fluid w-100" alt="Song Cover - A Journey of Faith">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">29 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">A Journey of Faith</a>
-                        <p class="mb-0">
-                            Experience a musical voyage that explores the depths of faith and the joy of worship.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
 <!-- Choir Songs End -->
+
+
+</body>
+
+</html>
+
 
 
         

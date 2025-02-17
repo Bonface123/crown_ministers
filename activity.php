@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Crown Ministers Choir | Our Activities</title>
+        <title>Crown Ministers - Our Team</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -40,8 +40,8 @@
         <!-- Spinner End -->
 
 
-        <!-- Topbar start -->
-        <divecho ""; class="container-fluid fixed-top">
+          <!-- Topbar start -->
+          <div class="container-fluid fixed-top">
             <div class="container topbar d-none d-lg-block">
                 <div class="topbar-inner">
                     <div class="row gx-0">
@@ -67,57 +67,57 @@
                 </div>
             </div>
             <div class="container">
-                <nav class="navbar navbar-light navbar-expand-lg py-3">
-                    <a href="index.php" class="navbar-brand"></a>
-                        <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a href="index.php" class="nav-item nav-link">Home</a>
-                            <a href="about.php" class="nav-item nav-link">About</a>
-                            <a href="activity.php" class="nav-item nav-link active">Activities</a>
-                            <a href="event.php" class="nav-item nav-link">Events</a>
-                            <a href="songs.php" class="nav-item nav-link">Songs</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="blog.php" class="dropdown-item">Latest Blog</a>
-                                    <a href="team.php" class="dropdown-item">Our Team</a>
-                                    <a href="testimonial.php" class="dropdown-item">Testimonial</a>
-                                    <a href="404.php" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div>
-                            <a href="contact.php" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
+              <nav class="navbar navbar-light navbar-expand-lg py-3">
+                <a href="index.php" class="navbar-brand">
+                  <h1 class="mb-0">Crown<span class="text-primary">Ministers</span> </h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                  <div class="navbar-nav ms-lg-auto mx-xl-auto">
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="activity.php" class="nav-item nav-link">Activities</a>
+                    <a href="event.php" class="nav-item nav-link">Events</a>
+                    <a href="songs.php" class="nav-item nav-link">Songs</a>
+                    <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                      <div class="dropdown-menu m-0 rounded-0">
+                        <a href="blog.php" class="dropdown-item">Latest Blog</a>
+                        <a href="team.php" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.php" class="dropdown-item active">Testimonial</a>
+                        <a href="404.php" class="dropdown-item">404 Page</a>
+                      </div>
                     </div>
-                </nav>
+                    <a href="contact.php" class="nav-item nav-link">Contact</a>
+                  </div>
+                  <!--<a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>-->
+                </div>
+              </nav>
             </div>
-        </div>
-        <!-- Topbar End -->
+          </div>
+          <!-- Topbar End -->
 
-    <!-- Hero Start -->
-<div class="container-fluid hero-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="hero-header-inner animated zoomIn" id="hero-content">
-                    <h1 class="display-1 text-dark" id="hero-title">Activities</h1>
-                    <p class="fs-4 text-dark" id="hero-description">Explore our various activities and programs.</p>
-                    <ol class="breadcrumb mb-0" id="hero-breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-dark" aria-current="page">Activities</li>
-                    </ol>
+
+        <!-- Hero Start -->
+        <div class="container-fluid hero-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="hero-header-inner animated zoomIn">
+                            <h1 class="display-1 text-dark">Our Activities</h1>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-dark" aria-current="page">Our Activities</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Hero End -->
+        <!-- Hero End -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

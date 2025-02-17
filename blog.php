@@ -120,117 +120,77 @@
         <!-- Hero End -->
 
 
-        
-       <!-- Blog Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-            Latest From <span class="text-primary">Our Blog</span>
-        </h1>
-        <div class="row g-4 justify-content-center">
-            <!-- Blog Item 1 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir1.jpg" class="img-fluid w-100" alt="Inspiring Worship Moments">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            15 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">5 Comments</a>
-                                </small>
+
+        <?php
+include('crown_ministers_admin/includes/db_connect.php');
+
+// Get all blog posts from the database
+$sql = "SELECT * FROM blogs ORDER BY published_on DESC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$blogs = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- You can include any additional CSS or JS libraries (like WOW.js) here -->
+</head>
+<body>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+                Latest From <span class="text-primary">Our Blog</span>
+            </h1>
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($blogs as $blog): ?>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
+                            <div class="blog-img position-relative overflow-hidden">
+                                <img src="uploads/<?= htmlspecialchars($blog['image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($blog['title']) ?>">
+                                <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
+                                    <?= htmlspecialchars($blog['published_on']) ?>
+                                </div>
                             </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Joy of Worship Through Song</a>
-                        <p class="mb-4">
-                            Discover how music unites our community and inspires us to lift our voices in praise. Explore reflections on our recent worship sessions and the power of song.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Item 2 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir2.jpg" class="img-fluid w-100" alt="Reflections on Music Ministry">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            22 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">8 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            <div class="p-4">
+                                <div class="blog-meta d-flex justify-content-between pb-2">
+                                    <div>
+                                        <small>
+                                            <i class="fas fa-user me-2 text-muted"></i>
+                                            <a href="#" class="text-muted me-2">By Admin</a>
+                                        </small>
+                                        <small>
+                                            <i class="fa fa-comment-alt me-2 text-muted"></i>
+                                            <a href="#" class="text-muted me-2">5 Comments</a>
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                                    </div>
+                                </div>
+                                <a href="blog_details.php?id=<?= $blog['id'] ?>" class="d-inline-block h4 lh-sm mb-3"><?= htmlspecialchars($blog['title']) ?></a>
+                                <p class="mb-4">
+                                    <?= nl2br(htmlspecialchars(substr($blog['content'], 0, 200))) ?>...
+                                </p>
+                                <a href="blog_details.php?id=<?= $blog['id'] ?>" class="btn btn-primary px-3">More Details</a>
                             </div>
                         </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Reflections on Our Music Ministry</a>
-                        <p class="mb-4">
-                            Join us as we share insights on how our choir is transforming lives through the art of music and worship. Learn about our journey and the impact of our ministry.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
                     </div>
-                </div>
-            </div>
-            <!-- Blog Item 3 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir3.jpg" class="img-fluid w-100" alt="Inspiration Through Music">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            29 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">10 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Inspiration Through Music</a>
-                        <p class="mb-4">
-                            Explore the spiritual journey behind our latest songs. This post dives into the inspiration and creative process that brings our music to life.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Blog End -->
+    <!-- Blog End -->
+
+
+</body>
+</html>
+
          <!-- Footer Start -->
 <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">

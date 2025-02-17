@@ -119,7 +119,54 @@
 </div>
 <!-- Hero End -->
 
-<script>
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
+
+// Get active events from the database
+$sql = "SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$events = $stmt->fetchAll();
+?>
+
+<!--<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch events dynamically from PHP
+        let slides = <?php echo json_encode(array_map(function($event) {
+            return [
+                'image' => "crown_ministers_admin/uploads/" . htmlspecialchars($event['event_image']),
+                'title' => htmlspecialchars($event['event_name']),
+                'description' => htmlspecialchars($event['event_description']),
+                'breadcrumb' => '
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-dark" aria-current="page">' . htmlspecialchars($event['event_name']) . '</li>'
+            ];
+        }, $events)); ?>;
+
+        let heroSection = document.querySelector(".hero-header");
+        let heroTitle = document.getElementById("hero-title");
+        let heroDescription = document.getElementById("hero-description");
+        let heroBreadcrumb = document.getElementById("hero-breadcrumb");
+
+        let index = 0;
+
+        function changeSlide() {
+            heroSection.style.background = `url("${slides[index].image}") center center no-repeat`;
+            heroSection.style.backgroundSize = "cover";
+            heroTitle.textContent = slides[index].title;
+            heroDescription.textContent = slides[index].description;
+            heroBreadcrumb.innerHTML = slides[index].breadcrumb;
+
+            index = (index + 1) % slides.length; // Loop through slides
+        }
+
+        setInterval(changeSlide, 5000); // Change every 5 seconds
+    });
+</script>-->
+
+
+<!--<script>
     document.addEventListener("DOMContentLoaded", function () {
         let slides = [
             {
@@ -181,85 +228,54 @@
     .hero-header {
         transition: background 1s ease-in-out;
     }
-</style>
+</style> -->
 
 
 
-         <!-- Events Start -->
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
+
+// Get active events from the database
+$sql = "SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$events = $stmt->fetchAll();
+?>
+
+<!-- Events Start -->
 <div class="container-fluid event py-5">
     <div class="container py-5">
         <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
             Upcoming <span class="text-primary">Events</span>
         </h1>
-        <!-- Event 1 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>15 Apr 2025</h6>
-                    <p class="mb-0">Sat 19:00</p>
+
+        <?php foreach ($events as $index => $event): ?>
+            <div class="row g-4 event-item wow fadeIn" data-wow-delay="<?= 0.1 * ($index + 1) ?>s">
+                <div class="col-3 col-lg-2 pe-0">
+                    <div class="text-center border-bottom border-dark py-3 px-2">
+                        <!-- Format Date -->
+                        <h6><?= date('d M Y', strtotime($event['event_date'])) ?></h6>
+                        <p class="mb-0"><?= date('D H:i', strtotime($event['event_date'])) ?></p>
+                    </div>
+                </div>
+                <div class="col-9 col-lg-6 border-start border-dark pb-5">
+                    <div class="ms-3">
+                        <h4 class="mb-3"><?= htmlspecialchars($event['event_name']) ?></h4>
+                        <p class="mb-4">
+                            <?= htmlspecialchars($event['event_description']) ?>
+                        </p>
+                        <a href="#" class="btn btn-primary px-3">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="overflow-hidden mb-5">
+                        <!-- Ensure correct image path -->
+                        <img src="crown-ministers_admin/uploads/<?= htmlspecialchars($event['event_image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($event['event_name']) ?>">
+                    </div>
                 </div>
             </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Evening Praise Concert</h4>
-                    <p class="mb-4">
-                        Join Crown Ministers for an evening of uplifting music and praise. Experience soulful worship that will inspire and renew your spirit.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir1.jpg" class="img-fluid w-100" alt="Evening Praise Concert">
-                </div>
-            </div>
-        </div>
-        <!-- Event 2 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.3s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>22 Apr 2025</h6>
-                    <p class="mb-0">Sun 10:00</p>
-                </div>
-            </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Community Outreach Service</h4>
-                    <p class="mb-4">
-                        Be part of our community outreach event as we extend our support to those in need through inspiring messages and heartfelt music.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir2.jpg" class="img-fluid w-100" alt="Community Outreach Service">
-                </div>
-            </div>
-        </div>
-        <!-- Event 3 -->
-        <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.5s">
-            <div class="col-3 col-lg-2 pe-0">
-                <div class="text-center border-bottom border-dark py-3 px-2">
-                    <h6>29 Apr 2025</h6>
-                    <p class="mb-0">Fri 18:30</p>
-                </div>
-            </div>
-            <div class="col-9 col-lg-6 border-start border-dark pb-5">
-                <div class="ms-3">
-                    <h4 class="mb-3">Special Worship Night</h4>
-                    <p class="mb-4">
-                        Gather with Crown Ministers for a night of special worship, heartfelt prayer, and community fellowship. Let your spirit be lifted.
-                    </p>
-                    <a href="#" class="btn btn-primary px-3">Join Now</a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="overflow-hidden mb-5">
-                    <img src="img/events-choir3.jpg" class="img-fluid w-100" alt="Special Worship Night">
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
+
     </div>
 </div>
 <!-- Events End -->
