@@ -358,140 +358,106 @@
 <!-- Activities End -->
 
 
-<div id="events-section">
-    <h2>Upcoming Events</h2>
-    <div id="events-container"></div>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('fetch_events.php')
-    .then(response => response.json())
-    .then(data => {
-        let eventsContainer = document.getElementById('events-container');
-        eventsContainer.innerHTML = '';
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
 
-        data.forEach(event => {
-            eventsContainer.innerHTML += `
-                <div class="event">
-                    <h3>${event.title}</h3>
-                    <p><strong>Date:</strong> ${event.date} | <strong>Time:</strong> ${event.time}</p>
-                    <p><strong>Location:</strong> ${event.location}</p>
-                    <p>${event.description}</p>
-                    <img src="uploads/${event.image}" alt="Event Image" width="200">
+// Get active events from the database
+$sql = "SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$events = $stmt->fetchAll();
+?>
+
+<!-- Events Start -->
+<div class="container-fluid event py-5">
+    <div class="container py-5">
+        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+            Upcoming <span class="text-primary">Events</span>
+        </h1>
+
+        <?php foreach ($events as $index => $event): ?>
+            <div class="row g-4 event-item wow fadeIn" data-wow-delay="<?= 0.1 * ($index + 1) ?>s">
+                <div class="col-3 col-lg-2 pe-0">
+                    <div class="text-center border-bottom border-dark py-3 px-2">
+                        <!-- Format Date -->
+                        <h6><?= date('d M Y', strtotime($event['event_date'])) ?></h6>
+                        <p class="mb-0"><?= date('D H:i', strtotime($event['event_date'])) ?></p>
+                    </div>
                 </div>
-            `;
-        });
-    })
-    .catch(error => console.log("Error fetching events:", error));
-});
-</script>
+                <div class="col-9 col-lg-6 border-start border-dark pb-5">
+                    <div class="ms-3">
+                        <h4 class="mb-3"><?= htmlspecialchars($event['event_name']) ?></h4>
+                        <p class="mb-4">
+                            <?= htmlspecialchars($event['event_description']) ?>
+                        </p>
+                        <a href="#" class="btn btn-primary px-3">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="overflow-hidden mb-5">
+                        <!-- Ensure correct image path -->
+                        <img src="crown-ministers_admin/uploads/<?= htmlspecialchars($event['event_image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($event['event_name']) ?>">
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+    </div>
+</div>
+<!-- Events End -->
+
+
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
+// Get all active songs from the database
+$sql = "SELECT * FROM youtube_songs"; // Query to get all songs
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$songs = $stmt->fetchAll();
+?>
 
 
 <!-- Choir Songs Start -->
 <div class="container-fluid choir-songs py-5">
     <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
+        <div class="text-center mx-auto mb-5">
             <p class="fs-5 text-uppercase text-primary">Choir Songs</p>
             <h1 class="display-3">Experience Our Uplifting Music</h1>
         </div>
         <div class="row g-4 justify-content-center">
-            <!-- Song Item 1 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.1s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-1.jpg" class="img-fluid w-100" alt="Song Cover - Embracing His Love">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">15 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
+            <?php foreach ($songs as $song): ?>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="song-item wow fadeIn" data-wow-delay="0.1s">
+                        <div class="overflow-hidden p-4 pb-0">
+                            <!-- You can use a placeholder image for the song -->
+                            <img src="img/song-placeholder.jpg" class="img-fluid w-100" alt="Song Cover">
                         </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Embracing His Love</a>
-                        <p class="mb-0">
-                            Listen to our soulful rendition that celebrates the overwhelming love of God.
-                        </p>
+                        <div class="p-4">
+                            <div class="song-meta d-flex justify-content-between pb-2">
+                                <div>
+                                    <small>
+                                        <i class="fa fa-calendar me-2 text-muted"></i>
+                                        <a href="#" class="text-muted me-2"><?= htmlspecialchars($song['uploaded_on']) ?></a>
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="<?= htmlspecialchars($song['youtube_url']) ?>" target="_blank" class="me-1">
+                                        <i class="fas fa-video text-muted"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="<?= htmlspecialchars($song['youtube_url']) ?>" target="_blank" class="d-inline-block h4 lh-sm mb-3">
+                                <?= htmlspecialchars($song['song_name']) ?>
+                            </a>
+                            <!-- Dynamically displaying the song description -->
+                            <p class="mb-0">
+                                <?= htmlspecialchars($song['description']) ?> <!-- Displaying description here -->
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Song Item 2 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.3s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-2.jpg" class="img-fluid w-100" alt="Song Cover - The Power of Praise">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">22 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Power of Praise</a>
-                        <p class="mb-0">
-                            Join us in a powerful musical journey that uplifts and inspires through heartfelt praise.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Song Item 3 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="song-item wow fadeIn" data-wow-delay="0.5s">
-                    <div class="overflow-hidden p-4 pb-0">
-                        <img src="img/song-3.jpg" class="img-fluid w-100" alt="Song Cover - A Journey of Faith">
-                    </div>
-                    <div class="p-4">
-                        <div class="song-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fa fa-calendar me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">29 Apr 2025</a>
-                                </small>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted">Admin</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#" class="me-1"><i class="fas fa-video text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-headphones text-muted"></i></a>
-                                <a href="#" class="me-1"><i class="fas fa-file-alt text-muted"></i></a>
-                                <a href="#" class=""><i class="fas fa-image text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">A Journey of Faith</a>
-                        <p class="mb-0">
-                            Experience a musical voyage that explores the depths of faith and the joy of worship.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
@@ -499,210 +465,73 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+<?php
+include('crown_ministers_admin/includes/db_connect.php');
 
-       <!-- Blog Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-            Latest From <span class="text-primary">Our Blog</span>
-        </h1>
-        <div class="row g-4 justify-content-center">
-            <!-- Blog Item 1 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir1.jpg" class="img-fluid w-100" alt="Inspiring Worship Moments">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            15 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">5 Comments</a>
-                                </small>
+// Get all blog posts from the database
+$sql = "SELECT * FROM blogs ORDER BY published_on DESC";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$blogs = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- You can include any additional CSS or JS libraries (like WOW.js) here -->
+</head>
+<body>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+                Latest From <span class="text-primary">Our Blog</span>
+            </h1>
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($blogs as $blog): ?>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
+                            <div class="blog-img position-relative overflow-hidden">
+                                <img src="uploads/<?= htmlspecialchars($blog['image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($blog['title']) ?>">
+                                <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
+                                    <?= htmlspecialchars($blog['published_on']) ?>
+                                </div>
                             </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">The Joy of Worship Through Song</a>
-                        <p class="mb-4">
-                            Discover how music unites our community and inspires us to lift our voices in praise. Explore reflections on our recent worship sessions and the power of song.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Item 2 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.3s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir2.jpg" class="img-fluid w-100" alt="Reflections on Music Ministry">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            22 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">8 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                            <div class="p-4">
+                                <div class="blog-meta d-flex justify-content-between pb-2">
+                                    <div>
+                                        <small>
+                                            <i class="fas fa-user me-2 text-muted"></i>
+                                            <a href="#" class="text-muted me-2">By Admin</a>
+                                        </small>
+                                        <small>
+                                            <i class="fa fa-comment-alt me-2 text-muted"></i>
+                                            <a href="#" class="text-muted me-2">5 Comments</a>
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
+                                    </div>
+                                </div>
+                                <a href="blog_details.php?id=<?= $blog['id'] ?>" class="d-inline-block h4 lh-sm mb-3"><?= htmlspecialchars($blog['title']) ?></a>
+                                <p class="mb-4">
+                                    <?= nl2br(htmlspecialchars(substr($blog['content'], 0, 200))) ?>...
+                                </p>
+                                <a href="blog_details.php?id=<?= $blog['id'] ?>" class="btn btn-primary px-3">More Details</a>
                             </div>
                         </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Reflections on Our Music Ministry</a>
-                        <p class="mb-4">
-                            Join us as we share insights on how our choir is transforming lives through the art of music and worship. Learn about our journey and the impact of our ministry.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
                     </div>
-                </div>
-            </div>
-            <!-- Blog Item 3 -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="blog-item wow fadeIn" data-wow-delay="0.5s">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img src="img/blog-choir3.jpg" class="img-fluid w-100" alt="Inspiration Through Music">
-                        <div class="bg-primary d-inline px-3 py-2 text-center text-white position-absolute top-0 end-0">
-                            29 Apr 2025
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="blog-meta d-flex justify-content-between pb-2">
-                            <div>
-                                <small>
-                                    <i class="fas fa-user me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">By Admin</a>
-                                </small>
-                                <small>
-                                    <i class="fa fa-comment-alt me-2 text-muted"></i>
-                                    <a href="#" class="text-muted me-2">10 Comments</a>
-                                </small>
-                            </div>
-                            <div>
-                                <a href="#"><i class="fas fa-bookmark text-muted"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="d-inline-block h4 lh-sm mb-3">Inspiration Through Music</a>
-                        <p class="mb-4">
-                            Explore the spiritual journey behind our latest songs. This post dives into the inspiration and creative process that brings our music to life.
-                        </p>
-                        <a href="#" class="btn btn-primary px-3">More Details</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Blog End -->
+    <!-- Blog End -->
 
-
-        <!-- Team Start -->
-<div class="container-fluid team py-5">
-    <div class="container py-5">
-      <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
-        <p class="fs-5 text-uppercase text-primary">Our Team</p>
-        <h1 class="display-3">Meet Our Leaders & Team</h1>
-      </div>
-      <div class="row g-5">
-        <!-- Primary Leader: Choir Director (Davis) -->
-        <div class="col-lg-4 col-xl-5">
-          <div class="team-img wow zoomIn" data-wow-delay="0.1s">
-            <img src="img/team-davis.jpg" class="img-fluid" alt="Davis - Choir Director">
-          </div>
-        </div>
-        <div class="col-lg-8 col-xl-7">
-          <div class="team-item wow fadeIn" data-wow-delay="0.1s">
-            <h1>Davis</h1>
-            <h5 class="fw-normal fst-italic text-primary mb-4">Choir Director</h5>
-            <p class="mb-4">
-              Davis leads Crown Ministers with passion and dedication, inspiring our choir to spread God's word through song, missions, and outreach projects.
-            </p>
-            <div class="team-icon d-flex pb-4 mb-4 border-bottom border-primary">
-              <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-              <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-              <a class="btn btn-primary btn-lg-square me-2" href="#"><i class="fab fa-instagram"></i></a>
-              <a class="btn btn-primary btn-lg-square" href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-          <div class="row g-4">
-            <!-- Team Member: Choir Secretary (Shallot) -->
-            <div class="col-md-4">
-              <div class="team-item wow zoomIn" data-wow-delay="0.2s">
-                <img src="img/team-shallot.jpg" class="img-fluid w-100" alt="Shallot - Choir Secretary">
-                <div class="team-content text-dark text-center py-3">
-                  <div class="team-content-inner">
-                    <h5 class="mb-0">Shallot</h5>
-                    <p class="text-dark">Choir Secretary</p>
-                    <div class="team-icon d-flex align-items-center justify-content-center">
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-instagram"></i></a>
-                      <a class="btn btn-primary btn-sm-square" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member: Music Coordinator -->
-            <div class="col-md-4">
-              <div class="team-item wow zoomIn" data-wow-delay="0.4s">
-                <img src="img/team-music.jpg" class="img-fluid w-100" alt="Music Coordinator">
-                <div class="team-content text-dark text-center py-3">
-                  <div class="team-content-inner">
-                    <h5 class="mb-0">Sarah</h5>
-                    <p class="text-dark">Music Coordinator</p>
-                    <div class="team-icon d-flex align-items-center justify-content-center">
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-instagram"></i></a>
-                      <a class="btn btn-primary btn-sm-square" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member: Volunteer Coordinator -->
-            <div class="col-md-4">
-              <div class="team-item wow zoomIn" data-wow-delay="0.6s">
-                <img src="img/team-volunteer.jpg" class="img-fluid w-100" alt="Volunteer Coordinator">
-                <div class="team-content text-dark text-center py-3">
-                  <div class="team-content-inner">
-                    <h5 class="mb-0">Linda</h5>
-                    <p class="text-dark">Volunteer Coordinator</p>
-                    <div class="team-icon d-flex align-items-center justify-content-center">
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-twitter"></i></a>
-                      <a class="btn btn-primary btn-sm-square me-2" href="#"><i class="fab fa-instagram"></i></a>
-                      <a class="btn btn-primary btn-sm-square" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Additional Team Members -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Team End -->
-  
+       
 
         <!-- Testimonial Start -->
 <div class="container-fluid testimonial py-5">
@@ -827,105 +656,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
-        <!-- Footer Start -->
-<div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row py-5">
-            <div class="col-lg-7">
-                <h1 class="text-light mb-0">Subscribe to our YouTube Channel</h1>
-                <p class="text-secondary">Watch, share, and support our ministry</p>
-            </div>
-            <div class="col-lg-5">
-                <div class="position-relative mx-auto">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="border-top border-secondary"></div>
-            </div>
-        </div>
-        <div class="row g-4 footer-inner">
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item mt-5">
-                    <h4 class="text-light mb-4">Crown Ministers Choir</h4>
-                    <p class="mb-4 text-secondary">
-                        A Gusii-origin-based Singing Group, formed in 2018 to spread God’s word through music, missions, and outreach projects. 
-                    </p>
-                    <a href="#" class="btn btn-primary py-2 px-4">Support Our Mission</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item mt-5">
-                    <h4 class="text-light mb-4">Contact Us</h4>
-                    <div class="d-flex flex-column">
-                        <h6 class="text-secondary mb-0">Our Fellowship</h6>
-                        <div class="d-flex align-items-center border-bottom py-4">
-                            <span class="flex-shrink-0 btn-square bg-primary me-3 p-4">
-                                <i class="fa fa-map-marker-alt text-dark"></i>
-                            </span>
-                            <p class="text-body mb-0">Nyanchwa Mission Hospital SDA Church, Kisii Town</p>
-                        </div>
-                        <h6 class="text-secondary mt-4 mb-0">Contact Details</h6>
-                        <div class="d-flex align-items-center py-4">
-                            <span class="flex-shrink-0 btn-square bg-primary me-3 p-4">
-                                <i class="fa fa-phone-alt text-dark"></i>
-                            </span>
-                            <p class="text-body mb-0">
-                                Davis (Director): <a href="tel:+254111289899">+254 111 289 899</a><br>
-                                Shallot (Secretary): <a href="tel:+254727456619">+254 727 456 619</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item mt-5">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <div class="d-flex flex-column align-items-start">
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Home</a>
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>About Us</a>
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Our Music</a>
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>YouTube Channel</a>
-                        <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Support Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item mt-5">
-                    <h4 class="text-light mb-4">Latest Updates</h4>
-                    <div class="d-flex border-bottom border-secondary py-4">
-                        <img src="img/song1.jpg" class="img-fluid flex-shrink-0" alt="">
-                        <div class="ps-3">
-                            <p class="mb-0 text-muted">New Release</p>
-                            <a href="#" class="text-body">"Song Title" - Watch Now</a>
-                        </div>
-                    </div>
-                    <div class="d-flex py-4">
-                        <img src="img/song2.jpg" class="img-fluid flex-shrink-0" alt="">
-                        <div class="ps-3">
-                            <p class="mb-0 text-muted">Join Our YouTube Membership</p>
-                            <a href="#" class="text-body">Support our projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    
-    <div class="container py-4">
-        <div class="border-top border-secondary pb-4"></div>
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom" href="#">Crown Ministers Choir</a>, All Rights Reserved.
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                Designed & Maintained by <a class="border-bottom" href="#">Your Name</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Footer End -->
+  <?php include 'crown_ministers_admin/includes/footer.php'; ?>
 
 
 

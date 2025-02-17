@@ -7,12 +7,14 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit();
 }
+//include '../includes/header.php';
 
 // Get all team members from the database
 $sql = "SELECT * FROM team";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $team_members = $stmt->fetchAll();
+//include '../includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +58,12 @@ $team_members = $stmt->fetchAll();
                         <a href="delete_member.php?id=<?= $member['id'] ?>" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
+                
             <?php endforeach; ?>
         </tbody>
     </table>
 </body>
 
 </html>
+<?php include '../includes/footer.php'; ?>
+

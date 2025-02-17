@@ -13,7 +13,9 @@ $sql = "SELECT * FROM youtube_songs"; // Fetch the 'description' field as well
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $songs = $stmt->fetchAll();
+include '../includes/header.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,3 +63,4 @@ $songs = $stmt->fetchAll();
     </table>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

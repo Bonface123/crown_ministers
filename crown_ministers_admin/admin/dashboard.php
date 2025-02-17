@@ -15,17 +15,10 @@ $sql = "SELECT * FROM admins WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$admin_id]);
 $admin = $stmt->fetch();
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Include your CSS file -->
-</head>
-<body>
+// Include the header
+include '../includes/header.php';
+?>
 
 <div class="dashboard-container">
     <h2>Welcome, <?php echo htmlspecialchars($admin['username']); ?>!</h2>
@@ -40,5 +33,4 @@ $admin = $stmt->fetch();
     </ul>
 </div>
 
-</body>
-</html>
+<?php include '../includes/footer.php'; ?>
