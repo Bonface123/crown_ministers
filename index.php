@@ -115,7 +115,7 @@
         </div>
         <!-- Hero End -->
 
-       <!--<script>
+     <script>
             document.addEventListener("DOMContentLoaded", function () {
                 let slides = [
                   
