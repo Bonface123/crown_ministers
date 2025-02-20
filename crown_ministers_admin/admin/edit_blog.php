@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
-
+<?php include '../includes/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,3 +74,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
+<?php include '../includes/header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,3 +68,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p><a href="youtube.php">Back to Manage Songs</a></p>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

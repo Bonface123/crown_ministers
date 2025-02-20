@@ -33,14 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Team Member</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+<?php include '../includes/header.php'; ?>
 <body>
     <h2>Add Team Member</h2>
     <form method="POST" enctype="multipart/form-data">
@@ -65,3 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

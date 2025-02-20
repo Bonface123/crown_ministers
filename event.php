@@ -1,4 +1,4 @@
-<?php include 'crown_ministers_admin/includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 <!-- Hero Start -->
 <div class="container-fluid hero-header">
     <div class="container">
@@ -20,7 +20,7 @@
 <!-- Hero End -->
 
 <?php
-include('crown_ministers_admin/includes/db_connect.php');
+include('includes/db_connect.php');
 
 // Get active events from the database
 $sql = "SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC";
@@ -34,7 +34,7 @@ $events = $stmt->fetchAll();
         // Fetch events dynamically from PHP
         let slides = <?php echo json_encode(array_map(function($event) {
             return [
-                'image' => "crown_ministers_admin/uploads/" . htmlspecialchars($event['event_image']),
+                'image' => "uploads/" . htmlspecialchars($event['event_image']),
                 'title' => htmlspecialchars($event['event_name']),
                 'description' => htmlspecialchars($event['event_description']),
                 'breadcrumb' => '
@@ -133,7 +133,7 @@ $events = $stmt->fetchAll();
 
 
 <?php
-include('crown_ministers_admin/includes/db_connect.php');
+include('includes/db_connect.php');
 
 // Get active events from the database
 $sql = "SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC";
@@ -164,13 +164,13 @@ $events = $stmt->fetchAll();
                         <p class="mb-4">
                             <?= htmlspecialchars($event['event_description']) ?>
                         </p>
-                        <a href="#" class="btn btn-primary px-3">Join Now</a>
+                        <a href="join.php" class="btn btn-primary px-3">Join Now</a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="overflow-hidden mb-5">
                         <!-- Ensure correct image path -->
-                        <img src="crown-ministers_admin/uploads/<?= htmlspecialchars($event['event_image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($event['event_name']) ?>">
+                        <img src="uploads/<?= htmlspecialchars($event['event_image']) ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($event['event_name']) ?>">
                     </div>
                 </div>
             </div>
@@ -181,4 +181,4 @@ $events = $stmt->fetchAll();
 <!-- Events End -->
     </body>
 </html>
-<?php include 'crown_ministers_admin/includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

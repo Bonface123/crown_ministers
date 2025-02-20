@@ -1,73 +1,73 @@
 <?php
-// Include the database connection file
+// Include the database connection
 include('../includes/db_connect.php');
 
-// Start the session to manage login status
+// Start session
 session_start();
 
-// Check if the admin is already logged in and redirect to the dashboard if true
+// Redirect if already logged in
 if (isset($_SESSION['admin_id'])) {
     header('Location: dashboard.php');
     exit();
 }
 
-// Handle login form submission
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form data
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $error = '';
 
-    // Basic validation for empty fields
     if (empty($username) || empty($password)) {
         $error = 'Both fields are required.';
     } else {
-        // Prepare and execute the query to check if the admin exists
-        $sql = "SELECT * FROM admins WHERE username = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$username]);
+        try {
+            // Prepare the statement
+            $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ?");
+            $stmt->execute([$username]);
+            $admin = $stmt->fetch();
 
-        // Fetch the admin record
-        $admin = $stmt->fetch();
+            // Check if admin exists and verify the password
+            if ($admin && password_verify($password, $admin['password'])) {
+                // Regenerate session ID to prevent session fixation
+                session_regenerate_id(true);
 
-        // Debugging: Check if admin record is fetched
-        if (!$admin) {
-            echo "No admin found with that username.";
-        }
+                // Set session variables
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['username'] = $admin['username'];
 
-        // Debugging: Output the fetched admin for verification
-        var_dump($admin); 
-
-        // Verify the password using password_verify (use hashed passwords)
-        if ($admin && password_verify($password, $admin['password'])) {
-            // If login is successful, set session variables
-            $_SESSION['admin_id'] = $admin['id'];
-            $_SESSION['username'] = $admin['username'];
-
-            // Redirect to the dashboard
-            header('Location: dashboard.php');
-            exit();
-        } else {
-            // If login fails, show an error message
-            $error = 'Invalid username or password.';
+                // Redirect to dashboard
+                header('Location: dashboard.php');
+                exit();
+            } else {
+                $error = 'Invalid username or password.';
+            }
+        } catch (PDOException $e) {
+            $error = 'Database error: ' . $e->getMessage();
         }
     }
 }
 ?>
 
+<?php include '../includes/header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Include your CSS file -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
 
 <div class="login-container">
     <h2>Admin Login</h2>
 
-    <?php if (isset($error)) { echo '<p class="error">'.$error.'</p>'; } ?>
+    <?php if (!empty($error)): ?>
+        <p class="error"><?= htmlspecialchars($error); ?></p>
+    <?php endif; ?>
 
     <form action="login.php" method="POST">
         <input type="text" name="username" placeholder="Username" required>
@@ -77,4 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 </body>
+
 </html>
+
+<?php include '../includes/footer.php'; ?>

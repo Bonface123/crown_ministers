@@ -46,14 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Event</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+<?php include '../includes/header.php'; ?>
 <body>
     <h2>Add New Event</h2>
     <form method="POST" action="add_event.php" enctype="multipart/form-data">
@@ -65,3 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

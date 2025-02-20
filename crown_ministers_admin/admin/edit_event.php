@@ -39,15 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
-
+<?php include '../includes/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Event</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
 
 <body>
     <h2>Edit Event</h2>
@@ -75,3 +69,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+<?php include '../includes/footer.php'; ?>

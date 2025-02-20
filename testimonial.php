@@ -1,4 +1,4 @@
-<?php include 'crown_ministers_admin/includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
         <!-- Hero Start -->
         <div class="container-fluid hero-header">
             <div class="container">
@@ -142,4 +142,4 @@
   <!-- Testimonial End -->
     </body>
 </html>
-<?php include 'crown_ministers_admin/includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

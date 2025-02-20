@@ -16,15 +16,6 @@ $songs = $stmt->fetchAll();
 include '../includes/header.php';
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Songs</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
 <body>
     <h2>Manage Songs</h2>
     <a href="add_song.php">Add New Song</a>

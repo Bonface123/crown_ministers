@@ -14,7 +14,7 @@ $sql = "SELECT * FROM team";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $team_members = $stmt->fetchAll();
-//include '../includes/header.php';
+include '../includes/header.php';
 ?>
 
 <!DOCTYPE html>

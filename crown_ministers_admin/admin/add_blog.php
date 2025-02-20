@@ -28,15 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Blog</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+<?php include '../includes/header.php'; ?>
 <body>
     <h2>Add New Blog Post</h2>
     <form method="POST" enctype="multipart/form-data">
@@ -47,3 +39,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

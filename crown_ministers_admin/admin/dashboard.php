@@ -17,7 +17,7 @@ $stmt->execute([$admin_id]);
 $admin = $stmt->fetch();
 
 // Include the header
-include '../includes/header.php';
+include '../includes/header2.php';
 ?>
 
 <div class="dashboard-container">

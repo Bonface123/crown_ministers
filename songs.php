@@ -1,5 +1,5 @@
-<?php include 'crown_ministers_admin/includes/header.php'; ?>
-  <!-- Hero Start -->
+<?php include 'includes/header.php'; ?>
+<!-- Hero Start -->
 <div class="container-fluid hero-header">
     <div class="container">
         <div class="row">
@@ -27,98 +27,11 @@
 </div>
 <!-- Hero End -->
 
-<!--<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let slides = [
-            {
-                image: "img/Song1.jpg",
-                title: "Hallelujah Praise",
-                description: "A song of praise lifting the name of Jesus higher.",
-                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
-                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Hallelujah Praise</li>`,
-                video: "https://youtu.be/9cokak2clco?si=3XUOMHblDlWxWn5x"
-            },
-            {
-                image: "img/Song2.jpg",
-                title: "Glory to God",
-                description: "A heartfelt worship song exalting the greatness of God.",
-                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
-                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Glory to God</li>`,
-                video: "https://youtu.be/9cokak2clco?si=3XUOMHblDlWxWn5x"
-            },
-            {
-                image: "img/Song3.jpg",
-                title: "Joyful Melodies",
-                description: "Rejoice in the Lord with this uplifting melody.",
-                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
-                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">Joyful Melodies</li>`,
-                video: "https://www.youtube.com/embed/YOUTUBE_VIDEO_ID3?autoplay=1&mute=0&rel=0"
-            },
-            {
-                image: "img/Song4.jpg",
-                title: "The Lord is My Strength",
-                description: "A song of faith and assurance in God's mighty power.",
-                breadcrumb: `<li class="breadcrumb-item"><a href="#">Home</a></li>
-                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                             <li class="breadcrumb-item text-dark" aria-current="page">The Lord is My Strength</li>`,
-                video: "https://www.youtube.com/embed/YOUTUBE_VIDEO_ID4?autoplay=1&mute=0&rel=0"
-            }
-        ];
-
-        let heroSection = document.querySelector(".hero-header");
-        let heroTitle = document.getElementById("hero-title");
-        let heroDescription = document.getElementById("hero-description");
-        let heroBreadcrumb = document.getElementById("hero-breadcrumb");
-        let heroVideo = document.getElementById("hero-video");
-
-        let index = 0;
-
-        function changeSlide() {
-            heroSection.style.background = `url("${slides[index].image}") center center no-repeat`;
-            heroSection.style.backgroundSize = "cover";
-            heroTitle.textContent = slides[index].title;
-            heroDescription.textContent = slides[index].description;
-            heroBreadcrumb.innerHTML = slides[index].breadcrumb;
-            heroVideo.src = slides[index].video; // Update YouTube video
-
-            index = (index + 1) % slides.length; // Loop through slides
-        }
-
-        setInterval(changeSlide, 15000); // Change every 15 seconds
-    });
-</script> -->
-
-<style>
-    .hero-header {
-        transition: background 1s ease-in-out;
-    }
-    .embed-responsive {
-        margin-top: 15px;
-        position: relative;
-        display: block;
-        width: 100%;
-        padding: 0;
-        overflow: hidden;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    }
-    .embed-responsive-item {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
-
-
 <?php
 include('crown_ministers_admin/includes/db_connect.php');
+
 // Get all active songs from the database
-$sql = "SELECT * FROM youtube_songs"; // Query to get all songs
+$sql = "SELECT * FROM youtube_songs";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $songs = $stmt->fetchAll();
@@ -137,7 +50,7 @@ $songs = $stmt->fetchAll();
 </head>
 
 <body>
-   
+
 <!-- Choir Songs Start -->
 <div class="container-fluid choir-songs py-5">
     <div class="container py-5">
@@ -150,8 +63,10 @@ $songs = $stmt->fetchAll();
                 <div class="col-lg-6 col-xl-4">
                     <div class="song-item wow fadeIn" data-wow-delay="0.1s">
                         <div class="overflow-hidden p-4 pb-0">
-                            <!-- You can use a placeholder image for the song -->
-                            <img src="img/song-placeholder.jpg" class="img-fluid w-100" alt="Song Cover">
+                            <!-- Dynamic Song Cover Image -->
+                            <img src="<?= !empty($song['song_cover']) ? 'uploads/' . htmlspecialchars($song['song_cover']) : 'img/song-placeholder.jpg' ?>" 
+                                 class="img-fluid w-100" 
+                                 alt="<?= htmlspecialchars($song['song_name']) ?>">
                         </div>
                         <div class="p-4">
                             <div class="song-meta d-flex justify-content-between pb-2">
@@ -172,7 +87,7 @@ $songs = $stmt->fetchAll();
                             </a>
                             <!-- Dynamically displaying the song description -->
                             <p class="mb-0">
-                                <?= htmlspecialchars($song['description']) ?> <!-- Displaying description here -->
+                                <?= htmlspecialchars($song['description']) ?>
                             </p>
                         </div>
                     </div>
@@ -185,5 +100,4 @@ $songs = $stmt->fetchAll();
 
 </body>
 </html>
-<?php include 'crown_ministers_admin/includes/footer.php'; ?>
- 
+<?php include 'includes/footer.php'; ?>

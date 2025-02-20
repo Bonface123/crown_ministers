@@ -14,15 +14,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $blogs = $stmt->fetchAll();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Blogs</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+<?php include '../includes/header.php'; ?>
 <body>
     <h2>Manage Blogs</h2>
     <a href="add_blog.php">Add New Blog Post</a>
@@ -64,3 +56,4 @@ $blogs = $stmt->fetchAll();
     </table>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>
