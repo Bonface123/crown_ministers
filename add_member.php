@@ -97,4 +97,4 @@ include 'includes/header2.php';
 </div>
 <!-- Add Team Member Section End -->
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer2.php'; ?>

@@ -108,4 +108,4 @@ include('includes/header2.php');
 </div>
 <!-- End Add Donation Section -->
 
-<?php include('includes/footer.php'); ?>
+<?php include('includes/footer2.php'); ?>

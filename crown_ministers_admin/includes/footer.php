@@ -54,7 +54,7 @@
                 <div class="footer-item mt-5">
                     <h4 class="text-light mb-4">Quick Links</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <a class="text-body mb-2" href="../index.php"><i class="fa fa-check text-primary me-2"></i>Home</a>
+                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Home</a>
                         <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>About Us</a>
                         <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Our Music</a>
                         <a class="text-body mb-2" href="#"><i class="fa fa-check text-primary me-2"></i>Contact Us</a>

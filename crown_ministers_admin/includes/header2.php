@@ -84,7 +84,6 @@
                         <a href="../admin/blog.php" class="nav-item nav-link">Blogs</a>
                         <a href="../admin/logout.php" class="nav-item nav-link">Logout</a>
                         <div class="nav-item dropdown">
-            
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
