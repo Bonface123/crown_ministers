@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<?php include('includes/header2.php'); ?>
+<?php include('includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,6 +146,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
     <!-- Login Form End -->
-    <?php include('includes/footer2.php'); ?>
+    <?php include('includes/footer.php'); ?>
 </body>
 </html>
