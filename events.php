@@ -30,8 +30,10 @@ if (isset($_GET['toggle_id'])) {
     exit();
 }
 
-// Get all events
-$sql = "SELECT * FROM events";
+// Get all events with the number of registrations
+$sql = "SELECT e.*, 
+               (SELECT COUNT(*) FROM event_registrations r WHERE r.event_id = e.id) AS registration_count 
+        FROM events e";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $events = $stmt->fetchAll();
@@ -74,7 +76,9 @@ $events = $stmt->fetchAll();
                             <th>Event Image</th>
                             <th>Event Name</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Description</th>
+                            <th>Registrations</th> <!-- New Column -->
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -83,7 +87,7 @@ $events = $stmt->fetchAll();
                         <?php foreach ($events as $event): ?>
                             <tr>
                                 <td>
-                                    <?php if ($event['event_image']): ?>
+                                    <?php if (!empty($event['event_image'])): ?>
                                         <img src="../uploads/<?= htmlspecialchars($event['event_image']) ?>" alt="<?= htmlspecialchars($event['event_name']) ?>" width="100">
                                     <?php else: ?>
                                         No Image
@@ -91,7 +95,13 @@ $events = $stmt->fetchAll();
                                 </td>
                                 <td><?= htmlspecialchars($event['event_name']) ?></td>
                                 <td><?= htmlspecialchars($event['event_date']) ?></td>
+                                <td><?= htmlspecialchars($event['event_time']) ?></td>
                                 <td><?= htmlspecialchars($event['event_description']) ?></td>
+                                <td>
+                                    <a href="view_attendees.php?event_id=<?= $event['id'] ?>" class="btn btn-success">
+                                        <?= $event['registration_count'] ?> Attendees
+                                    </a>
+                                </td> 
                                 <td><?= htmlspecialchars($event['status']) ?></td>
                                 <td>
                                     <a href="events.php?toggle_id=<?= $event['id'] ?>" class="btn btn-warning">

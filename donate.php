@@ -222,7 +222,7 @@ include('includes/header.php');
                 <!-- Impact Card 1 -->
                 <div class="col-md-4">
                     <div class="card shadow-sm">
-                        <img src="img/instrument.jpg" class="card-img-top" alt="New Instruments">
+                        <img src="img/instrument.png" class="card-img-top" alt="New Instruments">
                         <div class="card-body">
                             <h5 class="card-title">New Instruments</h5>
                             <p class="card-text">Donations have enabled us to purchase new instruments, enhancing our musical performance.</p>

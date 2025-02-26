@@ -3,10 +3,9 @@
 require_once 'includes/db_connect.php';
 
 
-// Start the session for CSRF protection
+// Start session for CSRF protection
 session_start();
 require_once 'includes/header.php';
-
 // Generate CSRF token if not set
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -14,6 +13,21 @@ if (empty($_SESSION['csrf_token'])) {
 
 // Initialize variables
 $success = $error = "";
+$event_name = "Join Our Event"; // Default hero title
+
+// Get event details if event_id is provided
+if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
+    $event_id = $_GET['event_id'];
+    $stmt = $pdo->prepare("SELECT event_name FROM events WHERE id = :event_id AND status = 'active'");
+    $stmt->execute([':event_id' => $event_id]);
+    $event = $stmt->fetch();
+
+    if ($event) {
+        $event_name = htmlspecialchars($event['event_name']);
+    } else {
+        $error = "The selected event does not exist or is inactive.";
+    }
+}
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -64,9 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Join Event | Choir Events</title>
+    <title>Join <?= $event_name ?> | Choir Events</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
@@ -81,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="row">
             <div class="col-lg-7">
                 <div class="hero-header-inner animated zoomIn">
-                    <h1 class="display-1 text-dark">Join Our Event</h1>
+                    <h1 class="display-1 text-dark"><?= $event_name ?></h1>
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="events.php">Events</a></li>
@@ -106,10 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
 
-            <form action="join.php" method="POST" class="p-5 bg-light shadow rounded wow fadeIn" data-wow-delay="0.2s">
+            <form action="join.php?event_id=<?= htmlspecialchars($event_id) ?>" method="POST" class="p-5 bg-light shadow rounded wow fadeIn" data-wow-delay="0.2s">
 
                 <!-- Hidden Event ID -->
-                <input type="hidden" name="event_id" value="<?= isset($_GET['event_id']) ? htmlspecialchars($_GET['event_id']) : '' ?>">
+                <input type="hidden" name="event_id" value="<?= htmlspecialchars($event_id) ?>">
 
                 <!-- CSRF Token -->
                 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
@@ -144,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <!-- Back to Events Link -->
             <div class="text-center mt-4">
-                <a href="event.php" class="btn btn-outline-primary">Back to Events</a>
+                <a href="events.php" class="btn btn-outline-primary">Back to Events</a>
             </div>
 
         </div>
@@ -170,5 +183,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php include('includes/footer.php'); ?>
 
 </body>
-
 </html>

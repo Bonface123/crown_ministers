@@ -9,7 +9,7 @@ if (isset($_SESSION['admin_id'])) {
     if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['Super Admin', 'Manager', 'Editor'])) {
         header('Location: dashboard.php');
     } else {
-        header('Location: user_dashboard.php');
+        header('Location: dashboard.php');
     }
     exit();
 }
@@ -26,7 +26,7 @@ if (isset($_COOKIE['admin_id']) && !isset($_SESSION['admin_id'])) {
         if (in_array($admin['role'], ['Super Admin', 'Manager', 'Editor'])) {
             header('Location: dashboard.php');
         } else {
-            header('Location: user_dashboard.php');
+            header('Location: dashboard.php');
         }
         exit();
     }
