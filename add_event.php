@@ -17,9 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $event_date        = $_POST['event_date'];
     $event_time        = $_POST['event_time'];
     $event_description = $_POST['event_description'];
+    $file_name         = NULL; // Default value for event image
 
-    // Handle file upload
-    if (isset($_FILES['event_image']) && $_FILES['event_image']['error'] == 0) {
+    // Check if an image was uploaded
+    if (!empty($_FILES['event_image']['name']) && $_FILES['event_image']['error'] == 0) {
         $upload_dir  = "uploads/";
         $file_name   = basename($_FILES['event_image']['name']);
         $upload_file = $upload_dir . $file_name;
@@ -27,24 +28,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Validate file type (JPEG, PNG, GIF allowed)
         $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
         if (in_array($_FILES['event_image']['type'], $allowed_types)) {
-            if (move_uploaded_file($_FILES['event_image']['tmp_name'], $upload_file)) {
-                // Insert event into the database
-                $sql  = "INSERT INTO events (event_name, event_date, event_time, event_description, event_image, status) 
-                         VALUES (?, ?, ?, ?, ?, 'active')";
-                $stmt = $pdo->prepare($sql);
-                if ($stmt->execute([$event_name, $event_date, $event_time, $event_description, $file_name])) {
-                    $success_message = "Event added successfully!";
-                } else {
-                    $error = "Error adding event. Please try again.";
-                }
-            } else {
+            if (!move_uploaded_file($_FILES['event_image']['tmp_name'], $upload_file)) {
                 $error = "Error uploading file.";
             }
         } else {
             $error = "Invalid file type. Only JPEG, PNG, and GIF are allowed.";
         }
-    } else {
-        $error = "No image uploaded or error in the upload.";
+    }
+
+    if (empty($error)) {
+        // Insert event into the database
+        $sql  = "INSERT INTO events (event_name, event_date, event_time, event_description, event_image, status) 
+                 VALUES (?, ?, ?, ?, ?, 'active')";
+        $stmt = $pdo->prepare($sql);
+
+        if ($stmt->execute([$event_name, $event_date, $event_time, $event_description, $file_name])) {
+            $success_message = "Event added successfully!";
+        } else {
+            $error = "Error adding event. Please try again.";
+        }
     }
 }
 
@@ -113,8 +115,8 @@ include('includes/header2.php');
                                 <textarea name="event_description" class="form-control" placeholder="Event Description" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="event_image" class="form-label">Event Image:</label>
-                                <input type="file" name="event_image" class="form-control" required>
+                                <label for="event_image" class="form-label">Event Image (Optional):</label>
+                                <input type="file" name="event_image" class="form-control">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Add Event</button>
@@ -128,4 +130,4 @@ include('includes/header2.php');
 </div>
 <!-- Add Event Section End -->
 
-<?php include('includes/footer2.php'); ?> 
+<?php include('includes/footer2.php'); ?>

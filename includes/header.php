@@ -74,7 +74,7 @@
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg py-3">
                 <a href="index.php" class="navbar-brand">
-                    <h1 class="mb-0">Crown<span class="text-primary">Ministers</span></h1>
+                    <h1 class="mb-0">Crown<span class="text-primary">Ministers Kisii</span></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>

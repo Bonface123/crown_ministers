@@ -8,8 +8,8 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
-// Get all songs from the database, including cover info
-$sql = "SELECT * FROM youtube_songs";
+// Get all songs from the database
+$sql = "SELECT * FROM youtube_songs ORDER BY uploaded_on DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $songs = $stmt->fetchAll();
@@ -57,7 +57,7 @@ include 'includes/header2.php';
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Cover</th>
+                            <th>Thumbnail</th>
                             <th>Song Title</th>
                             <th>YouTube URL</th>
                             <th>Description</th>
@@ -69,13 +69,23 @@ include 'includes/header2.php';
                         <?php if (count($songs) > 0): ?>
                             <?php foreach ($songs as $song): ?>
                                 <tr>
-                                    <!-- Song Cover -->
+                                    <!-- Thumbnail: if a song cover exists use it; otherwise generate one from the YouTube URL -->
                                     <td>
-                                        <?php if (!empty($song['song_cover'])): ?>
-                                            <img src="../uploads/<?= htmlspecialchars($song['song_cover']) ?>" class="img-fluid" alt="Song Cover" style="max-width:100px;">
-                                        <?php else: ?>
-                                            <img src="img/placeholder.jpg" class="img-fluid" alt="Song Cover" style="max-width:100px;">
-                                        <?php endif; ?>
+                                        <?php 
+                                        if (!empty($song['song_cover'])) {
+                                            echo '<img src="../uploads/' . htmlspecialchars($song['song_cover']) . '" class="img-fluid" alt="Song Cover" style="max-width:100px;">';
+                                        } else {
+                                            // Extract video ID from YouTube URL
+                                            $youtubeUrl = $song['youtube_url'];
+                                            if (preg_match('/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/', $youtubeUrl, $matches)) {
+                                                $videoId = $matches[1];
+                                                $thumbnailUrl = "https://img.youtube.com/vi/$videoId/hqdefault.jpg";
+                                            } else {
+                                                $thumbnailUrl = "img/placeholder.jpg";
+                                            }
+                                            echo '<img src="' . htmlspecialchars($thumbnailUrl) . '" class="img-fluid" alt="Song Thumbnail" style="max-width:100px;">';
+                                        }
+                                        ?>
                                     </td>
                                     <!-- Song Title -->
                                     <td><?= htmlspecialchars($song['song_name']) ?></td>
