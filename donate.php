@@ -44,22 +44,7 @@ include('includes/header.php');
     <meta charset="UTF-8">
     <title>Donate - Crown Ministers Choir</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        /* Custom styles for the donation page */
-        #hero-donate {
-            background: url('img/choir8.jpg') center center no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-        #hero-donate .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255,255,255,0.7);
-        }
-    </style>
+
 </head>
 <body>
     <!-- Hero Section Start -->
