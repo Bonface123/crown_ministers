@@ -81,13 +81,10 @@ $songs = $stmt->fetchAll();
 <!-- Ensure only the active carousel iframe plays -->
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-    // When the carousel slides, clear the src of non-active iframes
-    $('#songCarousel').on('slid.bs.carousel', function (e) {
-        // For all non-active carousel items, clear iframe src to stop playback
+    $('#songCarousel').on('slid.bs.carousel', function () {
         $('#songCarousel .carousel-item').not('.active').find('iframe').each(function(){
             $(this).attr('src', '');
         });
-        // For active item, if iframe src is empty, restore from data-src
         $('#songCarousel .carousel-item.active').find('iframe').each(function(){
             if (!$(this).attr('src')) {
                 $(this).attr('src', $(this).data('src'));
@@ -95,7 +92,10 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     });
 });
+
 </script>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -131,32 +131,43 @@ document.addEventListener("DOMContentLoaded", function(){
         <div class="row g-4 justify-content-center">
             <?php if (!empty($songs)): ?>
                 <?php foreach ($songs as $song): 
-                    // Extract video ID and generate thumbnail if no cover provided
+                    // Extract video ID from YouTube URL
                     $youtubeUrl = $song['youtube_url'];
                     $videoId = '';
-                    if (preg_match('/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/', $youtubeUrl, $matches)) {
+
+                    if (preg_match('/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([a-zA-Z0-9_-]{11})/', $youtubeUrl, $matches)) {
                         $videoId = $matches[1];
                     }
+
+                    // Determine cover image
                     $coverImage = !empty($song['song_cover']) 
                         ? 'uploads/' . htmlspecialchars($song['song_cover']) 
-                        : "https://img.youtube.com/vi/$videoId/hqdefault.jpg";
-                    // Prepare embed URL for modal playback
-                    $embedUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&rel=0";
+                        : ($videoId ? "https://img.youtube.com/vi/$videoId/hqdefault.jpg" : 'default-cover.jpg');
+
+                    // Prepare YouTube embed URL for modal playback
+                    $embedUrl = $videoId ? "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&rel=0" : '#';
+
+                    // Generate Download Links
+                    $encodedName = urlencode($song['song_name']);
+                    $downloadMp3 = $videoId ? "download.php?videoId=$videoId&type=mp3&name=$encodedName" : ''; 
+                    $downloadMp4 = $videoId ? "download.php?videoId=$videoId&type=mp4&name=$encodedName" : ''; 
                 ?>
                     <div class="col-lg-6 col-xl-4">
-                        <div class="song-item wow fadeIn" data-wow-delay="0.1s" data-video-url="<?= htmlspecialchars($youtubeUrl) ?>">
+                        <div class="song-item wow fadeIn" data-wow-delay="0.1s">
                             <div class="overflow-hidden p-4 pb-0 position-relative">
                                 <img src="<?= $coverImage ?>" class="img-fluid w-100" alt="<?= htmlspecialchars($song['song_name']) ?>">
-                                <div class="play-icon">
-                                    <i class="fas fa-play"></i>
-                                </div>
+                                <?php if ($videoId): ?>
+                                    <div class="play-icon">
+                                        <i class="fas fa-play" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="<?= $embedUrl ?>"></i>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="p-4">
                                 <div class="song-meta d-flex justify-content-between pb-2">
                                     <div>
                                         <small>
                                             <i class="fa fa-calendar me-2 text-muted"></i>
-                                            <a href="#" class="text-muted me-2"><?= htmlspecialchars($song['uploaded_on']) ?></a>
+                                            <span class="text-muted me-2"><?= htmlspecialchars($song['uploaded_on']) ?></span>
                                         </small>
                                     </div>
                                     <div>
@@ -165,12 +176,18 @@ document.addEventListener("DOMContentLoaded", function(){
                                         </a>
                                     </div>
                                 </div>
-                                <a href="#" class="d-inline-block h4 lh-sm mb-3 song-title" data-video-url="<?= htmlspecialchars($youtubeUrl) ?>">
+                                <a href="#" class="d-inline-block h4 lh-sm mb-3 song-title">
                                     <?= htmlspecialchars($song['song_name']) ?>
                                 </a>
-                                <p class="mb-0">
-                                    <?= htmlspecialchars($song['description']) ?>
-                                </p>
+                                <p class="mb-3"><?= htmlspecialchars($song['description']) ?></p>
+
+                                <!-- Download Buttons -->
+                                <?php if ($videoId): ?>
+                                    <button class="btn btn-primary btn-sm download-btn" data-url="<?= $downloadMp3 ?>" data-type="mp3" data-name="<?= htmlspecialchars($song['song_name']) ?>">Download MP3</button>
+                                    <button class="btn btn-success btn-sm download-btn" data-url="<?= $downloadMp4 ?>" data-type="mp4" data-name="<?= htmlspecialchars($song['song_name']) ?>">Download MP4</button>
+                                <?php else: ?>
+                                    <button class="btn btn-secondary btn-sm" disabled>No Download Available</button>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -184,6 +201,68 @@ document.addEventListener("DOMContentLoaded", function(){
     </div>
 </div>
 <!-- Choir Songs End -->
+
+<script>
+document.querySelectorAll('.download-btn').forEach(button => {
+    button.addEventListener('click', function (event) {
+        event.preventDefault();
+        let downloadUrl = this.getAttribute('data-url');
+        let fileType = this.getAttribute('data-type');
+        let songName = this.getAttribute('data-name').replace(/[^a-zA-Z0-9_-]/g, '_'); // Sanitize filename
+
+        fetch(downloadUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                let a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = `${songName}.${fileType}`; 
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            })
+            .catch(error => console.error('Download error:', error));
+    });
+});
+</script>
+
+
+
+
+
+
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel">Song Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="youtubeVideo" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to Handle Video Playback in Modal -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var videoModal = document.getElementById('videoModal');
+        var youtubeFrame = document.getElementById('youtubeVideo');
+
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var videoUrl = button.getAttribute('data-video');
+            youtubeFrame.src = videoUrl;
+        });
+
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            youtubeFrame.src = "";
+        });
+    });
+</script>
+
 
 <!-- Video Modal -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">

@@ -10,6 +10,20 @@ if (!isset($_SESSION['admin_id'])) {
 
 $error = '';
 
+// Function to extract video ID from different YouTube URL formats
+function extractYouTubeID($url) {
+    if (preg_match('/youtu\.be\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return $matches[1]; // Shareable URL format
+    } elseif (preg_match('/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return $matches[1]; // Embedded URL format
+    } elseif (preg_match('/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return $matches[1]; // Standard YouTube URL
+    } elseif (preg_match('/src="https:\/\/www\.youtube\.com\/embed\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+        return $matches[1]; // Extract from iframe
+    }
+    return null; // Invalid URL
+}
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['song_name'], $_POST['youtube_url'], $_POST['description'])) {
@@ -17,15 +31,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $youtube_url = trim($_POST['youtube_url']);
         $description = trim($_POST['description']);
 
+        // Extract the video ID
+        $video_id = extractYouTubeID($youtube_url);
+        if ($video_id) {
+            $embed_url = "https://www.youtube.com/embed/$video_id"; // Ensure it's in embed format
+        } else {
+            $error = "Invalid YouTube URL.";
+        }
+
         // Process file upload for song cover
         $song_cover = ''; // Default to empty
         if (isset($_FILES['song_cover']) && $_FILES['song_cover']['error'] == 0) {
-            $allowed = array("jpg", "jpeg", "png", "gif");
+            $allowed = ["jpg", "jpeg", "png", "gif"];
             $fileName = $_FILES['song_cover']['name'];
             $fileTmpName = $_FILES['song_cover']['tmp_name'];
             $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
             if (in_array($fileExt, $allowed)) {
-                // Create a unique file name to avoid conflicts
                 $song_cover = uniqid() . '.' . $fileExt;
                 $destination = 'uploads/' . $song_cover;
                 if (!move_uploaded_file($fileTmpName, $destination)) {
@@ -35,14 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = "Invalid file type for song cover. Allowed types: jpg, jpeg, png, gif.";
             }
         } 
-        // You can choose to set a default cover if none is provided:
-        // else { $song_cover = 'default_cover.jpg'; }
 
         if (empty($error)) {
-            // Insert song into the youtube_songs database table
-            $sql  = "INSERT INTO youtube_songs (song_name, youtube_url, description, song_cover) VALUES (?, ?, ?, ?)";
+            // Insert into database
+            $sql = "INSERT INTO youtube_songs (song_name, youtube_url, description, song_cover) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            if ($stmt->execute([$song_name, $youtube_url, $description, $song_cover])) {
+            if ($stmt->execute([$song_name, $embed_url, $description, $song_cover])) {
                 header('Location: youtube.php');
                 exit();
             } else {
@@ -101,7 +121,8 @@ include('includes/header2.php');
                                 </div>
                                 <div class="mb-3">
                                     <label for="youtube_url" class="form-label">YouTube URL</label>
-                                    <input type="url" name="youtube_url" id="youtube_url" class="form-control" placeholder="YouTube URL" required>
+                                    <input type="text" name="youtube_url" id="youtube_url" class="form-control" placeholder="YouTube URL or iframe Embed Code" required>
+                                    <small class="form-text text-muted">Enter either a YouTube share link, watch URL, or an iframe embed code.</small>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Song Description</label>

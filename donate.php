@@ -1,37 +1,39 @@
 <?php
-// donate.php
-
 include('includes/db_connect.php');
 session_start();
 
 $success = '';
 $error = '';
+$amount = '0.00'; // Default value
 
 // Process form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $donor_name     = trim($_POST['donor_name']);
-    $phone          = trim($_POST['phone']);
-    $amount         = trim($_POST['amount']);
-    $payment_method = trim($_POST['payment_method']);
-    $mpesa_code     = trim($_POST['mpesa_code']);
-    $notes          = trim($_POST['notes']);
+    $donor_name     = trim($_POST['donor_name'] ?? '');
+    $phone          = trim($_POST['phone'] ?? '');
+    $amount         = trim($_POST['amount'] ?? '');
+    $payment_method = trim($_POST['payment_method'] ?? '');
+    $mpesa_code     = trim($_POST['mpesa_code'] ?? ''); // Ensure key exists
+    $notes          = trim($_POST['notes'] ?? ''); // Ensure key exists
 
     // Validate required fields
     if (empty($donor_name) || empty($phone) || empty($amount) || empty($payment_method)) {
         $error = "Please fill in all required fields.";
     } else {
-        // Set current datetime for donation_date
         $donation_date = date("Y-m-d H:i:s");
 
-        // Insert donation into the donations table
-        $sql  = "INSERT INTO donations (donor_name, phone, amount, donation_date, payment_method, mpesa_code, notes, status) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending')";
-        $stmt = $pdo->prepare($sql);
-        
-        if ($stmt->execute([$donor_name, $phone, $amount, $donation_date, $payment_method, $mpesa_code, $notes])) {
-            $success = "Thank you for your donation! Please follow the payment instructions below to complete your donation.";
-        } else {
-            $error = "There was an error processing your donation. Please try again.";
+        // Insert donation into the database
+        try {
+            $sql  = "INSERT INTO donations (donor_name, phone, amount, donation_date, payment_method, notes) 
+                     VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+
+            if ($stmt->execute([$donor_name, $phone, $amount, $donation_date, $payment_method, $notes])) {
+                $success = "Thank you for your donation! Please follow the payment instructions below to complete your donation.";
+            } else {
+                $error = "There was an error processing your donation. Please try again.";
+            }
+        } catch (PDOException $e) {
+            $error = "Database error: " . $e->getMessage();
         }
     }
 }
@@ -44,25 +46,8 @@ include('includes/header.php');
     <meta charset="UTF-8">
     <title>Donate - Crown Ministers Choir</title>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 <body>
-    <!-- Hero Section Start -->
-    <section id="hero-donate" class="container-fluid hero-header">
-        <div class="overlay"></div>
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="hero-header-inner animated zoomIn" id="hero-content">
-                        <p class="fs-4 text-dark" id="hero-subtitle">Support Our Mission</p>
-                        <h1 class="display-1 mb-5 text-dark" id="hero-title">Your Donation Matters</h1>
-                        <a href="#donation-form" class="btn btn-primary py-3 px-5" id="hero-btn">Donate Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
 
     <!-- Donation Form Section Start -->
     <section id="donation-form" class="container py-5">
@@ -72,6 +57,7 @@ include('includes/header.php');
         <?php elseif (!empty($error)): ?>
             <div class="alert alert-danger text-center"><?= htmlspecialchars($error); ?></div>
         <?php endif; ?>
+        
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow-sm p-4">
@@ -91,23 +77,11 @@ include('includes/header.php');
                         <div class="mb-3">
                             <label for="payment_method" class="form-label">Payment Method <span class="text-danger">*</span></label>
                             <select name="payment_method" id="payment_method" class="form-control" required>
-                                <option value="">Select Payment Method</option>
-                                <option value="Cash">Cash</option>
-                                <option value="Credit Card">Credit Card</option>
-                                <option value="Bank Transfer">Bank Transfer</option>
-                                <option value="Mobile Payment">Mobile Payment (Mpesa)</option>
+                                <option value="Mpesa">Mpesa</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="mpesa_code" class="form-label">Mpesa Transaction Code (If applicable)</label>
-                            <input type="text" name="mpesa_code" id="mpesa_code" class="form-control" placeholder="Enter Mpesa code if paid via Mpesa">
-                        </div>
-                        <div class="mb-3">
-                            <label for="notes" class="form-label">Additional Comments (Optional)</label>
-                            <textarea name="notes" id="notes" class="form-control" placeholder="Your message or comments"></textarea>
-                        </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary py-2 px-4">Donate Now</button>
+                            <button type="submit" class="btn btn-primary py-2 px-4">Proceed to Pay</button>
                         </div>
                     </form>
                 </div>
@@ -118,26 +92,50 @@ include('includes/header.php');
 
     <!-- Payment Details Section Start -->
     <section id="payment-details" class="container py-5">
-        <h2 class="text-center mb-4">Payment Details</h2>
+        <h2 class="text-center mb-4">Payment Instructions</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card shadow-sm p-4">
-                    <h5 class="text-primary">Bank Transfer</h5>
-                    <p>Please transfer your donation to the following bank account:</p>
-                    <ul>
-                        <li><strong>Bank Name:</strong> KCB Bank</li>
-                        <li><strong>Account Number:</strong> 123456789</li>
-                        <li><strong>Account Name:</strong> Crown Ministers Choir</li>
-                    </ul>
+                <div class="payment-container">
+                    <h2>Total Due</h2>
+                    <h1>Ksh <?= htmlspecialchars($amount ?? '0.00'); ?></h1>
+
+                    <label for="payment-method">Payment Method:</label>
+                    <select id="payment-method" class="input-field">
+                        <option>Pay via Mpesa</option>
+                    </select>
+
+                    <p>Enter your M-PESA number below to receive a prompt on your phone</p>
+                    <input type="tel" id="mpesa-phone" class="input-field" placeholder="2547XXXXXXXX" value="254729820689">
+
+                    <button class="btn" onclick="sendPaymentRequest()">Send Payment Request</button>
+
+                    <p class="highlight">Enter business no: 400200</p>
+                    <p class="highlight">Enter account no: 860234</p>
+                    <p class="highlight">Enter amount: <?= htmlspecialchars($amount ?? '0.00'); ?> KES</p>
+
+                    <a href="#" class="download-link">Download Receipt</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Payment Details Section End -->
 
-<?php include('includes/footer.php'); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
+    <script>
+        function sendPaymentRequest() {
+            let phoneNumber = document.getElementById("mpesa-phone").value;
+            let amount = <?= json_encode($amount ?? '0.00') ?>;
+            
+            if (phoneNumber.length < 10) {
+                alert("Please enter a valid phone number!");
+            } else {
+                alert("Payment request for Ksh " + amount + " sent to " + phoneNumber);
+            }
+        }
+    </script>
+
+    <?php include('includes/footer.php'); ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
